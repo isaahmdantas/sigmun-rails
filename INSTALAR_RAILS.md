@@ -150,5 +150,5 @@ rails new sigmun -d postgresql -m ~/rails-swift/main/template.rb
 Rodar a aplicação: 
 
 ```bash
-bin/dev 
+rails s
 ```

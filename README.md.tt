@@ -1,0 +1,30 @@
+# <%= app_name %>
+
+Este é um aplicativo Rails <%= Rails::VERSION::MAJOR %>.
+
+## Documentação
+
+Este README descreve o propósito deste repositório e como configurar um ambiente de desenvolvimento.
+
+
+## Pré-requisitos
+
+Este projeto requer:
+
+* Ruby <%= RUBY_VERSION %>, preferencialmente gerenciado usando [rvm](https://rvm.io/rvm/install)
+* O PostgreSQL deve estar instalado e aceitando conexões
+
+
+Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, confira este [Guia de configuração do Rails](https://github.com/isaahmdantas/rails-swift/blob/main/INSTALAR_RAILS.md).
+
+
+## Primeiros passos
+
+* rails db:create 
+* rails db:migrate 
+* rails seed:migrate 
+* npm install 
+* rails s
+
+
+Acesse o aplicativo em <http://localhost:3000/>.

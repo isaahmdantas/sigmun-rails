@@ -15,7 +15,7 @@ Este template atualmente funciona com:
 * Node 16 ou superior 
 * Yarn 1.x 
 
-Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby on Rails, confira meu [Guia de Instalação](https://github.com/isaahmdantas/rails-swift/INSTALAR_RAILS.md)
+Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby on Rails, confira meu [Guia de Instalação](https://github.com/isaahmdantas/rails-swift/blob/main/INSTALAR_RAILS.md)
 
 ## Instalação
 

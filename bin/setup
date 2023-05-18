@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+require "bundler/inline"
+require "fileutils"
+
+def setup!
+    within_project_root do
+        run "bundle check > /dev/null 2>&1 || bundle install"
+
+        run "yarn install" if File.exist?("yarn.lock")
+
+        copy "config/application.yml.tt", "config/application.yml"
+
+        generate "audited:install"
+
+        run "bundle exec whenever"
+        
+        run "bin/rails seed_migration:install:migrations"
+
+        run "bin/rails db:drop db:create"
+    end
+end
+
+def within_project_root(&)
+  Dir.chdir(File.expand_path("..", __dir__), &)
+end
+
+def run(command)
+  log(:blue, "run  #{command}")
+  with_clean_bundler_env do
+    system(command, exception: true)
+  end
+end
+
+def with_clean_bundler_env(&)
+  return yield unless defined?(Bundler)
+
+  Bundler.with_clean_env(&)
+end
+
+def copy(source, dest)
+  return if File.exist?(dest)
+
+  log(:magenta, "copy #{source} → #{dest}")
+  FileUtils.cp(source, dest)
+end
+
+
+def log(color, message, out = $stdout)
+  out.puts(message.sub(/^(\S*)/) { HighLine::String.new($1).public_send(color) })
+end
+
+setup!

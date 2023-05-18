@@ -14,6 +14,20 @@ def apply_template!
     add_template_repository_to_source_path
 
     template "Gemfile.tt", force: true 
+    template "README.md.tt", force: true
+
+    template "config/application.yml.tt"
+
+    copy_file "editorconfig", ".editorconfig"
+
+    template "node-version.tt", ".node-version", force: true
+    template "ruby-version.tt", ".ruby-version", force: true
+
+    copy_file "Procfile"
+    copy_file "package.json"
+    
+    apply "bin/template.rb"
+    apply "config/template.rb"
 end
 
 
