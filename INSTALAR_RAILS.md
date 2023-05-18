@@ -10,10 +10,10 @@ sudo apt-get update
 sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
 ```
 
-Em seguida, instalaremos o Ruby usando um gerenciador de versão chamado [rvm] (https://rvm.io/):
+Em seguida, instalaremos o Ruby usando um gerenciador de versão chamado [rvm](https://rvm.io/):
 
 ```
-    gpg2 --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+gpg2 --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 ```
 
 ```
@@ -24,7 +24,7 @@ Em seguida, instalaremos o Ruby usando um gerenciador de versão chamado [rvm] (
 Para instalar o Ruby e definir a versão padrão, executaremos os seguintes comandos:
 
 ```
-    rvm install 3.2.2
+rvm install 3.2.2
 ```
 
 ```
@@ -40,7 +40,7 @@ ruby -v
 Em seguida, podemos instalar o rails:
 
 ```
-    gem install rails -v 7.0.4.2 --no-document
+gem install rails -v 7.0.4.2 --no-document
 ```
 
 ## Configurando o Git
@@ -82,11 +82,11 @@ sudo apt install postgresql libpq-dev
 
 - Configurar o Postgresql:
 ```
-    sudo nano /etc/postgresql/:version/main/pg_hba.conf
+sudo nano /etc/postgresql/:version/main/pg_hba.conf
 ```
 - Alterar a linha a baixo de peer para trust: 
 ```
-    local all postgres peer
+local all postgres peer
 ```
 -  Reiniciar o serviço: 
 ```
@@ -99,7 +99,7 @@ psql -U postgres
 
 # Iniciando um projeto Rails
 
-Para criar um projeto Rails, basta usar o rails newcomando, assim:
+Para criar um projeto Rails, basta usar o `rails new` comando, assim:
 
 ```
 rails new sigmun -d postgresql
@@ -108,17 +108,17 @@ rails new sigmun -d postgresql
 Ou considere usar o template criado para os futuros projetos da PMM: 
 
 ```bash
-    rails new sigmun \
-    -d postgresql \
-    -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+rails new sigmun \
+-d postgresql \
+-m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
 ```
 
 ou 
 
 ```bash
-    rails new sigmun \
-    -d postgresql \
-    -m ~/rails-swift/main/template.rb
+rails new sigmun \
+-d postgresql \
+-m ~/rails-swift/main/template.rb
 ```
 
 
