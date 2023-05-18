@@ -46,17 +46,13 @@ ou
 Para gerar uma aplicação Rails usando este template, passe a opção `-m` para `rails new`, assim: 
 
 ```bash
-    rails new sigmun \
-    -d postgresql \
-    -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+    rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
 ```
 
 Gerar aplicação rails utilizando o template apartir da sua máquina: 
 
 ```bash
-    rails new sigmun \
-    -d postgresql \
-    -m ~/rails-swift/main/template.rb
+    rails new sigmun -d postgresql -m ~/rails-swift/main/template.rb
 ```
 
 
@@ -109,5 +105,10 @@ O template executará as seguintes etapas:
 * Teste: 
     * [rspec-rails](https://github.com/rspec/rspec-rails) - é uma biblioteca (gem) que facilita a prática de testes em aplicações Ruby ou Rails
     * [shoulda](https://github.com/thoughtbot/shoulda) - Shoulda ajuda você a escrever testes específicos do Rails mais compreensíveis e sustentáveis ​​sob Minitest e Test::Unit.
+    * [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
     * [faker](https://github.com/faker-ruby/faker) - É uma biblioteca para gerar dados falsos, como nomes, endereços e números de telefone.
 
+
+## Créditos 
+
+* Este projeto foi desenvolvido com base no template do [mattbrictson/rails-template](https://github.com/mattbrictson/rails-template). Agradeço aos criadores do template por fornecerem uma estrutura sólida e inspiração para este template.

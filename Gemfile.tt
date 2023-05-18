@@ -1,0 +1,80 @@
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "<%= RUBY_VERSION %>"
+
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> <%= Rails.version[/\d+\.\d+\.\d+/] %>"
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+<%= gemfile_entry "sprockets-rails" -%>
+
+# Use postgresql as the database for Active Record
+<%= gemfile_entry "pg" -%>
+
+# Use the Puma web server [https://github.com/puma/puma]
+<%= gemfile_entry "puma" -%>
+
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+<%= gemfile_entry "importmap-rails" -%>
+
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+<%= gemfile_entry "turbo-rails" -%>
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+<%= gemfile_entry "stimulus-rails" -%>
+
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+<%= gemfile_entry "jbuilder" -%>
+
+# Use Redis adapter to run Action Cable in production
+<%= gemfile_entry "redis" -%>
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+
+# Reduces boot times through caching; required in config/boot.rb
+<%= gemfile_entry "bootsnap" -%>
+
+group :development, :test do
+    gem "byebug"
+    gem "debug", platforms: %i[ mri mingw x64_mingw ]
+    <%= gemfile_entry "web-console" -%>
+    <%= gemfile_entry "capybara" -%>
+    <%= gemfile_entry "selenium-webdriver" -%>
+    <%= gemfile_entry "webdrivers" -%>
+
+    # Segurança
+    gem 'brakeman'
+
+    # Teste
+    gem 'rspec-rails', '~> 6.0.0'
+    gem "shoulda-context"
+    gem "shoulda-matchers"
+    gem 'faker'
+    gem "factory_bot_rails"
+end
+
+
+# Essencial 
+gem "sidekiq"
+
+# Configuração 
+
+
+# Utilidades
+gem 'acts_as_paranoid'
+gem 'audited'
+gem 'exception_notification'
+gem 'whenever'
+gem 'cocoon'
+gem 'kaminari'
+gem 'array_enum'
+gem 'auto_increment'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'protokoll'
+gem 'seed_migration'
+
+# Segurança
+gem 'rack-attack'

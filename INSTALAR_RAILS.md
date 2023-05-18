@@ -43,6 +43,36 @@ Em seguida, podemos instalar o rails:
 gem install rails -v 7.0.4.2 --no-document
 ```
 
+## Configurando o NodeJs 
+```
+curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
+```
+
+```
+sudo bash /tmp/nodesource_setup.sh
+```
+
+```
+sudo apt install nodejs
+```
+
+Verificar se deu certo a instalação: 
+```
+node -v
+```
+
+## Configurando o Yarn 
+
+```
+npm install --global yarn
+```
+
+Checar a instalação: 
+
+```
+yarn --version
+```
+
 ## Configurando o Git
 
 ```
@@ -108,17 +138,17 @@ rails new sigmun -d postgresql
 Ou considere usar o template criado para os futuros projetos da PMM: 
 
 ```bash
-rails new sigmun \
--d postgresql \
--m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
 ```
 
 ou 
 
 ```bash
-rails new sigmun \
--d postgresql \
--m ~/rails-swift/main/template.rb
+rails new sigmun -d postgresql -m ~/rails-swift/main/template.rb
 ```
 
+Rodar a aplicação: 
 
+```bash
+bin/dev 
+```
