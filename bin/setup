@@ -4,21 +4,22 @@ require "bundler/inline"
 require "fileutils"
 
 def setup!
-    within_project_root do
-        run "bundle check > /dev/null 2>&1 || bundle install"
+  within_project_root do
+    run "bundle check > /dev/null 2>&1 || bundle install"
 
-        run "yarn install" if File.exist?("yarn.lock")
+    run "yarn install" if File.exist?("yarn.lock")
 
-        copy "config/application.yml.tt", "config/application.yml"
+    copy "config/application.yml.tt", "config/application.yml"
 
-        generate "audited:install"
+    generate "audited:install"
 
-        run "bundle exec whenever"
-        
-        run "bin/rails seed_migration:install:migrations"
+    run "wheneverize ."
+    
+    generate "protokoll:migration"
+    generate "seed_migration:install:migrations"
 
-        run "bin/rails db:drop db:create"
-    end
+    run "bin/rails db:drop db:create db:migrate"
+  end
 end
 
 def within_project_root(&)

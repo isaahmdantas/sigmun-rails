@@ -60,9 +60,17 @@ def apply_template!
       run_with_clean_bundler_env "bundle lock --add-platform x86_64-linux"
 
       unless any_local_git_commits?
+        git :init
         git checkout: "-b main"
         git add: "-A ."
         git commit: "-n -m 'Configuração do projeto'"
+
+
+        say
+        say "Aplicativo #{app_name} criado com sucesso!", :blue
+        say
+        say "Para começar a usar seu novo aplicativo:", :green
+        say "cd #{app_name} - Alterne para o diretório do seu novo aplicativo."
       end
 
     end

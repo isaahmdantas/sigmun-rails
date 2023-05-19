@@ -1,3 +1,5 @@
+apply "app/assets/template.rb"
+
 copy_file "app/controllers/home_controller.rb"
 copy_file "app/controllers/errors_controller.rb"
 copy_file "app/controllers/audits_controller.rb"

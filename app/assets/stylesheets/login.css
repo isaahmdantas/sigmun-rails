@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/*!
+* SIGMun Components DOCS - SIGMun Hero Package v0.0.1 (undefined)
+* Copyright 2022-2023 Heronildes Junior
+* Licensed under MIT (https://github.com/heronildesjr/sigmun-hero/blob/master/LICENSE)
+*/
+
+
+/* Path: dist\css\docs.css */
+
+/*content center*/
+#container-center {
+    display: flex;
+    min-height: calc(100vh);
+    padding-top: 57px !important;
+    overflow: hidden;
+  }
+/**/
+
+#container-center .sm-hero__sidenav, #container-center #main-content {
+    max-height: calc(100vh - 57px);
+    overflow: auto;
+}
