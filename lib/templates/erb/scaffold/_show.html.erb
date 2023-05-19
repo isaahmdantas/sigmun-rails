@@ -1,0 +1,16 @@
+<%%- model_class = <%= singular_table_name.titleize %> -%>
+
+<%% resource ||= resource %>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <%- attributes.each do |attribute| -%>
+        <% unless  attribute.name.downcase == 'deleted_at' %>
+          <dt><strong><%%= model_class.human_attribute_name(:<%= attribute.name.downcase %>) %> :</strong></dt>
+          <dd><%%= resource.try(:<%= attribute.name.downcase %>) %></dd>
+        <% end %>
+      <% end %>
+    </dl>
+  </div>
+</div>

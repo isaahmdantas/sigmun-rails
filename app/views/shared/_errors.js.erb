@@ -1,0 +1,34 @@
+<% if errors.kind_of?(Array) %>
+    <% errors.try(:each) do |error| %>
+        <% if error.try(:full_messages) %>
+            <% error.try(:full_messages).try(:each) do |msg| %>
+                toastify("<%= msg %>", 'error');
+            <% end %>
+        <% else %>
+            toastr["error"]("<%= error %>");
+            $('#loader-wrapper').hide();
+        <% end %>
+    <% end %>
+<% else %>
+    <% if errors.try(:full_messages) %>
+        <% errors.try(:full_messages).try(:each) do |msg| %>
+            toastify("<%= msg %>", 'error');
+        <% end %>
+    <% end %>
+<% end %>
+
+function toastify(message, type) {
+    var backgroundColor = type == 'success' ? '#4fbe87' : type == 'warning' ? '#ffc107' : type == 'info' ? '#0dcaf0' : type == 'error' ? "#f83f37" : "#6c757d";
+
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        backgroundColor: backgroundColor,
+        stopOnFocus: true,
+        className: "rounded",
+        onClick: function() {}
+    }).showToast();
+}

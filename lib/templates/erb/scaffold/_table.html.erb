@@ -1,0 +1,20 @@
+<%%- model_class=<%= singular_table_name.titleize %> -%>
+
+<% remote ||= remote %>
+<% show_collapse ||= show_collapse %>
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= singular_table_name.titleize %>" aria-expanded="true" aria-controls="<%= singular_table_name.titleize %>">
+        <%%= model_class.model_name.human(count: 2).titleize %>
+      </button>
+    </h2>
+    <div id="<%= singular_table_name.titleize %>" class="accordion-collapse collapse <%%= show_collapse %>" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <%%= render partial: "<%= plural_table_name %>/datatable" , locals: {remote: remote} %>
+      </div>
+    </div>
+  </div>
+</div>

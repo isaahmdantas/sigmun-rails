@@ -1,0 +1,19 @@
+<%- model_class = @audit.auditable_type.safe_constantize -%>
+
+<% remote ||= remote %>
+
+<% @audit['audited_changes'].map do |k,v| %>
+  <div class="row mb-7">
+    <label class="col-lg-4 fw-semibold text-muted"><%= @audit.auditable_type.safe_constantize.human_attribute_name(k) %>: </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800">
+        <% if v.kind_of?(Array) %>
+          Antes: <%= v[0] %><br>
+          Depois: <%= v[1] %>
+        <% else %>
+          <%= v || "Nulo" %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+<% end %>

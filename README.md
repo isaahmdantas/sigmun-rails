@@ -19,37 +19,24 @@ Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby on Rail
 
 ## Instalação
 
-- Executar o template apartir da máquina local: 
+- Clone o respositório para um diretório da sua preferência: 
 ```
-    git clone https://github.com/isaahmdantas/rails-swift.git 
+git clone git@github.com:isaahmdantas/rails-swift.git
 ```
-
 
 *Opcional.*
 
 - Para tornar este o modelo de aplicativo Rails padrão em seu sistema, crie um arquivo `~/.railsrc` com este conteúdo:
 
-```
-    -d postgresql
-    -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
-```
-ou 
 
 ```
     -d postgresql
     -m ~/rails-swift/main/template.rb
 ```
 
-
 ## Utilização
 
 Para gerar uma aplicação Rails usando este template, passe a opção `-m` para `rails new`, assim: 
-
-```bash
-    rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
-```
-
-Gerar aplicação rails utilizando o template apartir da sua máquina: 
 
 ```bash
     rails new sigmun -d postgresql -m ~/rails-swift/main/template.rb

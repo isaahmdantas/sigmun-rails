@@ -1,0 +1,309 @@
+<section id="demo-cards-dashboard" class="mb-5 sm-hero__section">
+    <h2>Painel de Controle</h2>
+    <div class="row justify-content-stretch">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-lg-3 mb-3 mb-lg-0">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="flex-grow-1 mb-md-2 mb-lg-0">
+                        <span class="card-header-icon">
+                            <i class="bi bi-newspaper"></i>
+                        </span>
+                        Notícias
+                    </h4>
+
+                    <div class="card-header-action">
+                        <a href="#" class="w-100 btn btn-sm btn-success"><i class="bi bi-plus"></i>Adicionar</a>
+                    </div>
+                </div>
+
+                <div class="card-body d-flex flex-column">
+                    <div class="card-box-body text-center flex-grow-1">
+                        <div class="row">
+                            <div class="col-sm-4 text-center">
+                                <h4 class="mb-0">1285</h4>
+                                <p class="mb-0 small">Publicadas</p>
+                            </div>
+                            <div class="col-sm-4">
+
+                                <h4 class="mb-0">1285</h4>
+                                <p class="mb-0 small">Agendadas</p>
+                            </div>
+                            <div class="col-sm-4">
+
+                                <h4 class="mb-0">1285</h4>
+                                <p class="mb-0 small">Visualizações</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex align-self-stretch align-items-center justify-content-between">
+                    <a class="small d-block flex-grow-1 text-primary" href="#">Visualizar detalhes</a>
+
+                    <span class="small align-self-end">
+                        <svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg="">
+                            <path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"></path>
+                        </svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com -->
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-lg-3 mb-3 mb-lg-0">
+            <div class="card">
+                <div class="card-header">
+                    <h4>
+                        <span class="card-header-icon">
+                            <i class="bi bi-pin"></i>
+                        </span>
+                        Categorias
+                    </h4>
+
+                    <span class="card-header-action">
+                        <a href="#" class="btn btn-sm btn-success"><i class="bi bi-plus"></i>Adicionar</a>
+                    </span>
+                </div>
+
+                <div class="card-body">
+                    <div class="card-box-body text-center">
+
+                        <h2>02</h2>
+
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex align-self-stretch align-items-center justify-content-between">
+                    <a class="small d-block flex-grow-1 text-primary" href="#">Visualizar detalhes</a>
+
+                    <span class="small align-self-end">
+                        <svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg="">
+                            <path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"></path>
+                        </svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com -->
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-lg-3 mb-3 mb-lg-0">
+            <div class="card">
+                <div class="card-header">
+                    <h4>
+                        <span class="card-header-icon">
+                            <i class="bi bi-envelope"></i>
+                        </span>
+                        Emails Cadastrados
+                    </h4>
+
+                    <!-- <span class="card-header-action">
+                        <a href="#" class="btn btn-sm btn-success"><i class="bi bi-plus"></i>Adicionar</a>
+                    </span> -->
+                </div>
+
+                <div class="card-body">
+                    <div class="card-box-body text-center">
+
+                        <h2>1250</h2>
+
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex align-self-stretch align-items-center justify-content-between">
+                    <a class="small d-block flex-grow-1 text-primary" href="#">Visualizar detalhes</a>
+
+                    <span class="small align-self-end">
+                        <svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg="">
+                            <path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"></path>
+                        </svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com -->
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-lg-3 mb-3 mb-lg-0">
+            <div class="card">
+                <div class="card-header">
+                    <h4>
+                        <span class="card-header-icon">
+                            <i class="bi bi-eye"></i>
+                        </span>
+                        Visualizações de página
+                    </h4>
+
+                    <!-- <span class="card-header-action">
+                        <a href="#" class="btn btn-sm btn-success"><i class="bi bi-plus"></i>Adicionar</a>
+                    </span> -->
+                </div>
+
+                <div class="card-body">
+                    <div class="card-box-body text-center">
+
+                        <h2>158.250</h2>
+
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex align-self-stretch align-items-center justify-content-between">
+                    <a class="small d-block flex-grow-1 text-primary" href="#">Visualizar detalhes</a>
+
+                    <span class="small align-self-end">
+                        <svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg="">
+                            <path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"></path>
+                        </svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com -->
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- listagem de notícias -->
+
+<section class="sm-hero__section">
+    <h2 class="sm-hero__section-title">List Datatable</h2>
+    <div class="card p-3">
+        <table id="demo-datatable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Posição</th>
+                    <th>Escritório</th>
+                    <th>Idade</th>
+                    <th>Data de início</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Caesar Vance</td>
+                    <td>Pre-Sales Support</td>
+                    <td>New York</td>
+                    <td>21</td>
+                    <td>2011-12-12</td>
+                    <td>
+                        <div class="sm-hero__datatable-actions">
+                            <a href="#" class="btn btn-sm btn-warning text-dark"><i class="bi bi-pencil"></i> Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unity Butler</td>
+                    <td>Marketing Designer</td>
+                    <td>San Francisco</td>
+                    <td>47</td>
+                    <td>2009-12-09</td>
+                    <td>
+                        <div class="sm-hero__datatable-actions">
+                            <a href="#" class="btn btn-sm btn-warning text-dark"><i class="bi bi-pencil"></i> Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Howard Hatfield</td>
+                    <td>Office Manager</td>
+                    <td>San Francisco</td>
+                    <td>51</td>
+                    <td>2008-12-16</td>
+                    <td>
+                        <div class="sm-hero__datatable-actions">
+                            <a href="#" class="btn btn-sm btn-warning text-dark"><i class="bi bi-pencil"></i> Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hope Fuentes</td>
+                    <td>Secretary</td>
+                    <td>San Francisco</td>
+                    <td>41</td>
+                    <td>2010-02-12</td>
+                    <td>
+                        <div class="sm-hero__datatable-actions">
+                            <a href="#" class="btn btn-sm btn-warning text-dark"><i class="bi bi-pencil"></i> Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vivian Harrell</td>
+                    <td>Financial Controller</td>
+                    <td>San Francisco</td>
+                    <td>62</td>
+                    <td>2009-02-14</td>
+                    <td>
+                        <div class="sm-hero__datatable-actions">
+                            <a href="#" class="btn btn-sm btn-warning text-dark"><i class="bi bi-pencil"></i> Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Timothy Mooney</td>
+                    <td>Office Manager</td>
+                    <td>London</td>
+                    <td>37</td>
+                    <td>2008-12-11</td>
+                    <td>
+                        <div class="sm-hero__datatable-actions">
+                            <a href="#" class="btn btn-sm btn-warning text-dark"><i class="bi bi-pencil"></i> Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Ações</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
+
+
+<section class="py-5 sm-hero__section">
+    <h2 class="sm-hero__section-title">Modal</h2>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Modal Padrão (botão)
+    </button>
+
+    <!-- Button trigger modal com link -->
+    <a href="#" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Modal Padrão (link)
+    </a>
+
+    <!-- Modal -->
+    <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Popover in a modal</h5>
+                <p>This <a href="#" role="button" class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                <hr>
+                <h5>Tooltips in a modal</h5>
+                <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-bs-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

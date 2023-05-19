@@ -1,0 +1,1 @@
+RESPOND_404 = ['wp-login.php']

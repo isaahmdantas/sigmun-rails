@@ -1,0 +1,45 @@
+<% modal_class ||= modal_class %>
+<% modal_id ||= modal_id %>
+<% modal_title ||= modal_title %>
+<% modal_body ||= modal_body %>
+<% modal_buttons ||= modal_buttons %>
+
+<div class="modal fade <%= modal_class %>" tabindex="-1" id="<%= modal_id %>" role="dialog">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="pull-right">
+                    <h1 class="modal-title" title="<%= modal_title %>" data-toggle="tooltip" data-placement="top">
+                        <%= modal_title %>
+                    </h1>
+                </div>
+                <div class="pull-left">
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <%= modal_body %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <div class="pull-left">
+                    <%= modal_buttons %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#<%= modal_id %>").find(".modal-footer button[type=submit]").on("click", function() {
+            var form = $(this).closest(".modal-content").find(".modal-body form");
+            Rails.fire(form[0], 'submit');
+        }); 
+        $("#<%= modal_id %>").on("hidden.bs.modal", function(e) {
+            $(this).remove();
+            $(".modal-backdrop").remove();
+        });
+        $("#<%= modal_id %>").on("shown.bs.modal", function(e) {
+            $('.modals .modal').removeClass("front");
+            $(this).addClass("front");
+        });
+    </script>
+</div>

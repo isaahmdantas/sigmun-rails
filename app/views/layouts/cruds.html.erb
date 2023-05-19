@@ -1,0 +1,11 @@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item decoration-none">
+            <%= link_to 'Início', root_path %>
+            <a href="#">Início</a>
+        </li>
+        <%= yield(:breadcrumb) %>
+    </ol>
+</nav>
+
+<%= parent_layout "application" %>

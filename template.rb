@@ -28,6 +28,44 @@ def apply_template!
     
     apply "bin/template.rb"
     apply "config/template.rb"
+    apply "lib/template.rb"
+
+    after_bundle do
+      append_to_file ".gitignore", <<~IGNORE
+        /config/application.yml
+        
+        /vendor/bundle/
+        /public/assets
+        /app/assets/builds/*
+        !/app/assets/builds/.keep
+        /node_modules
+        
+        .ruby-version
+        .node-version 
+        .ruby-gemset
+
+        # OS generated files #
+        .DS_Store
+        .DS_Store?
+        ._*
+        .Spotlight-V100
+        .Trashes
+        ehthumbs.db
+        Thumbs.db
+
+      IGNORE
+
+      apply "app/template.rb"
+
+      run_with_clean_bundler_env "bundle lock --add-platform x86_64-linux"
+
+      unless any_local_git_commits?
+        git checkout: "-b main"
+        git add: "-A ."
+        git commit: "-n -m 'Configuração do projeto'"
+      end
+
+    end
 end
 
 
@@ -68,7 +106,6 @@ def assert_postgresql
     fail Rails::Generators::Error, "Este template requer PostgreSQL, mas a gem 'pg' não está presente em seu Gemfile."
 end
 
-
 # Adiciona o repositório nos arquivos de geração da aplicação
 def add_template_repository_to_source_path
     if __FILE__ =~ %r{\Ahttps?://}
@@ -77,7 +114,7 @@ def add_template_repository_to_source_path
       at_exit { FileUtils.remove_entry(tempdir) }
       git clone: [
         "--quiet",
-        "https://github.com/isaahmdantas/rails-swift.git",
+        "https://isaahmdantas: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@github.com/isaahmdantas/rails-swift.git",
         tempdir
       ].map(&:shellescape).join(" ")
   
@@ -89,3 +126,6 @@ def add_template_repository_to_source_path
     end
 end
 
+def any_local_git_commits?
+  system("git log > /dev/null 2>&1")
+end

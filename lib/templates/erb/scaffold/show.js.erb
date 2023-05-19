@@ -1,0 +1,15 @@
+<%%- model_class = <%= singular_table_name.titleize %> -%>
+
+
+var content = "<%%= escape_javascript(render partial: 'shared/modal', locals: {
+  modal_class: 'modal_show_<%= singular_table_name %>',
+  modal_id: "modal_show_<%= singular_table_name %>_#{@<%= singular_table_name %>.id.to_s}",
+  modal_title: t('helpers.titles.show', :model => model_class.model_name.human.titleize),
+  modal_body: render(partial: '<%= plural_table_name %>/show', locals: {resource: @<%= singular_table_name %>, remote: true}),
+  modal_buttons: render(partial: '<%= plural_table_name %>/show_actions' , locals: {<%= singular_table_name %>: @<%= singular_table_name %>, remote: true})
+  })%>";
+if ($("#modal_show_<%= singular_table_name %>_<%%= @<%= singular_table_name %>.id.to_s %>").length) {
+    $("#modal_show_<%= singular_table_name %>_<%%= @<%= singular_table_name %>.id.to_s %>").modal('remove');
+}
+$(".modals").append(content);
+$("#modal_show_<%= singular_table_name %>_<%%= @<%= singular_table_name %>.id.to_s %>").modal('show');

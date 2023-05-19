@@ -1,0 +1,111 @@
+<header id="sm-hero-demo__header">
+    <div class="custom-border"></div>
+    <!-- Responsive navbar-->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light border-bottom">
+        <div class="container-fluid">
+            <div>
+                <button class="navbar-toggler d-inline-block" type="button" data-bs-toggle="collapse" data-bs-target="#layoutSidenav_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand" href="#">
+                    <img id="main-logo" src="assets/main-logo.png" class="img-fluid" style="max-height: 40px;" alt="">
+                </a>
+            </div>
+            <div class="d-none d-md-flex flex-grow-1 mx-5 justify-content-center">
+                <form class="col-md-10 col-offset-1">
+                    <input id="sigmun-hero-search-input" type="text" name="" class="form-control" placeholder="Digite aqui sua busca">
+                </form>
+            </div>
+            <div class="d-flex flex-grow-1 flex-sm-grow-0 flex-grow-md-0 justify-content-end">
+                <div class="d-flex align-items-center">
+                    <nav class="nav-top-right-container">
+                        <ul class="nav-top-right list-unstyled list-inline mb-0">
+                            <li class="nav-top-right__item position-relative" data-bs-toggle="tooltip" title="Notificações">
+                                <a href="#" role="button" class="d-block" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-bell"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownNotifications">
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle"></i> Notificação de exemplo etc etc etc etc etce ted fwsrfeas fsefsefse se f fsefe</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-top-right__item position-relative" data-bs-toggle="tooltip" title="Ajuda">
+                                <a href="#">
+                                    <i class="bi bi-question-circle"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-top-right__item position-relative" data-bs-toggle="tooltip" title="Módulos de Sistema">
+                                <a href="#" role="button" class="d-block" id="dropdownApps" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-grid-3x3-gap-fill"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownApps">
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i> Portal da Pref. de Mossoró</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-search"></i> Portal da Transparência</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-briefcase"></i> Portal do Emprego</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-book"></i> Diário Oficial do Município</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                    <!-- componente -->
+                    <div class="ms-2 sm-hero__avatar position-relative">
+
+                        <div class="bg-info rounded-circle overflow-hidden" data-bs-toggle="tooltip" title="Meu Perfil">
+                            <a href="#" role="button" class="d-block" id="dropdownAvatar" data-bs-toggle="dropdown" aria-expanded="false">
+                              <img src="https://via.placeholder.com/40x40" alt="avatar">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAvatar">
+                                <li><a class="dropdown-item" href="#">Meu perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Fazer Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </nav>
+
+    <div class="sm-hero__header-title shadow-sm">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-3 d-flex justify-content-center">
+
+                        <button class="d-inline btn bd-sidebar-toggle d-md-none py-0 px-1 ms-3 order-3" type="button" data-bs-toggle="collapse" data-bs-target="#layoutSidenav_nav" aria-controls="layoutSidenav_nav" aria-expanded="true" aria-label="Toggle docs navigation">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-expand" fill="currentColor" viewBox="0 0 16 16">
+                                <title>Expand</title>
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z"></path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
+                                <title>Collapse</title>
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
+                            </svg>
+                        </button>
+
+                        <h1 class="sm-hero__title">Módulo de CMS -> Portal da Prefeitura de Mossoró</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

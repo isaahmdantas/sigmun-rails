@@ -1,0 +1,10 @@
+<%%- model_class = <%= singular_table_name.titleize %> -%>
+
+
+if ($(".table-<%= plural_table_name %>").length) {
+    $( ".table-<%= plural_table_name %>" ).dataTable().api().ajax.reload(null, false);
+}
+
+
+
+$("#modal_edit_<%= singular_table_name %>_<%%= @<%= singular_table_name %>.id.to_s %>").modal('remove');

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= app_name %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render "layouts/partials/header" %>
+    <div id="container-center" class="container-fluid p-0 bd-layout flex-column flex-sm-column flex-md-row">
+      <%= render "layouts/partials/aside" %>
+      <main id="main-content">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

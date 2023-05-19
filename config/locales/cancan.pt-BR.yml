@@ -1,0 +1,3 @@
+pt-BR:
+  unauthorized:
+    default: "Você não possui permissão para acessar essa funcionalidade."

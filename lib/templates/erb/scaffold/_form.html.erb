@@ -1,0 +1,48 @@
+<%% remote=false if remote==nil %>
+<%% id ||=Time.now.to_i %>
+
+
+<%%= error_messages(<%= model_resource_name %>) %>
+
+<div class="card-body">
+    <%%= form_with(model: <%= model_resource_name %>) do |form| %>
+        <% attributes.each do |attribute| -%>
+            <% if attribute.password_digest? -%>
+                <div class="mb-3">
+                    <%%= form.label :password, class: 'form-label' %>
+                    <%%= form.password_field :password, class: 'form-control' %>
+                </div>
+                <div class="mb-3">
+                    <%%= form.label :password_confirmation, class: 'form-label' %>
+                    <%%= form.password_field :password_confirmation, class: 'form-control' %>
+                </div>
+            <% else %>
+                <% unless attribute.column_name == 'deleted_at' %>
+                    <% if attribute.field_type == :check_box %>
+                        <div class="mb-3 form-check">
+                            <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: "form-check-input" %>
+                            <%%= form.label :<%= attribute.column_name %>, class: "form-check-label" %>
+                        </div>
+                    <% else %>
+                        <div class="mb-3">
+                            <%%= form.label :<%= attribute.column_name %>, class: 'form-label'  %>
+                            <% if attribute.reference? %>
+                                <%%= form.collection_select :<%= attribute.column_name %>, <%= attribute.name.camelize %>.all, :id, :text, {include_blank: true}, class: "form-select" %>
+                            <% else %>
+                                <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: "form-control" %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end>
+        <% end %>
+    <%% end %>
+</div>
+<%% unless remote %>
+    <div class="card-footer d-flex justify-content-end">
+        <%%= render "<%= plural_table_name %>/form_actions" %>
+        <%%= link_to <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" do  %>
+            <i class="bi bi-arrow-left"></i> t("helpers.links.back")
+        <%% end %>
+    </div>
+<%% end %>

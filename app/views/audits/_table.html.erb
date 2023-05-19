@@ -1,0 +1,19 @@
+<% show_collapse ||= show_collapse %>
+<% audits ||= audits %>
+
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Audits" aria-expanded="true" aria-controls="Audits">
+        Histórico de Alterações
+      </button>
+    </h2>
+    <div id="Audits" class="accordion-collapse collapse <%= show_collapse %>" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <%= render partial: "audits/datatable" , locals: {audits: audits} %>
+      </div>
+    </div>
+  </div>
+</div>

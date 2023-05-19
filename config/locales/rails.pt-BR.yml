@@ -1,0 +1,50 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt-BR:
+  breadcrumbs:
+    application:
+      root: "Início"
+    pages:
+      pages: "Páginas"
+  helpers:
+    actions: "Opções"
+    links:
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Você tem certeza?"
+      confirm_destroy: "Você tem certeza que deseja remover esse(a) %{model}?"
+      confirm_inutilizar: "Você tem certeza que deseja inutilizar esse(a) %{model}?"
+      confirm_reutilizar: "Você tem certeza que deseja reutilizar esse(a) %{model}?"
+      destroy: "Remover"
+      new: "Novo"
+      newa: "Nova"
+      edit: "Alterar"
+      tranferir: "Tranferir"
+      inutilizar: "Inutilizar"
+      reutilizar: "Reutilizar"
+      show: "Visualizar"
+      index: "Lista"
+      save: "Salvar"
+      print: "Imprimir"
+      gerar: "Gerar"
+      search: "Pesquisar"
+      list: "Lista"
+      file_removed: "O arquivo '%{path}' não foi encontrado em seu diretório. A possível causa para esse erro é devido a sua remoção manual de seu diretório de origem no Storage. Verifique se o arquivo se encontra em sua respectiva pasta. Caso deseje realmente remover o arquivo do sistema, remova a sua referância para o arquivo. Caso contrário, é recomendado copiar o arquivo removido de volta para sua pasta do origem. Deseja remover sua referência no sistema?"
+      importar: "Importar"
+      edit_password: Alterar Senha
+    titles:
+      home: "Dashboard"
+      edit: "Alterar %{model}"
+      transferencia: "Transferir %{model}"
+      inutilizar: "Inutilizar %{model}"
+      reutilizar: "Reutilizar %{model}"
+      save: "Salvar %{model}"
+      new: "Novo %{model}"
+      newa: "Nova %{model}"
+      delete: "Deletar %{model}"
+      list: "Lista de %{model}"
+      show: "Visualizar %{model}"
+      admin: "Admin"
+      edit_password: Alterar Senha
+      index: "Lista"

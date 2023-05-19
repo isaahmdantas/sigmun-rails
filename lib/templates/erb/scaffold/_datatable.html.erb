@@ -1,0 +1,90 @@
+<% name_attribute = attributes.find{ |a| a.name == "name" } %>
+<% has_name = !!name_attribute %>
+
+<%%- model_class=<%= singular_table_name.titleize %> -%>
+
+<%% id ||=Time.now.to_i %>
+<%% remote ||=remote %>
+<%% datatable_url ||=datatable_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
+<%% link_to_new ||=new_<%= singular_table_name %>_url() %>
+
+
+<div class="sm-hero__toolbox mb-3">
+    <div class="card shadow-sm">
+        <div class="card-body p-2">
+            <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-outline-success', remote: remote do %>
+                <i class="bi bi-plus"></i> Adicionar (modal)</a>
+            <%% end %>
+            <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-outline-success' do %>
+                <i class="bi bi-link"></i> Adicionar (form externo)</a>
+            <%% end %>
+        </div>
+    </div>
+</div>
+
+<div class="card p-3">
+    <table class="table table-striped" style="width:100%" id="table-<%= plural_table_name %>-<%%= id %>">
+        <thead>
+            <tr>
+                <th>#</th>
+                <% attributes.without(name_attribute).each do |attribute| -%>
+                    <% unless attribute.name.downcase == 'deleted_at' %>
+                        <th><%%= model_class.human_attribute_name(:<%= attribute.name.downcase %>) %></th>
+                    <% end %>
+                <% end -%>
+                <th><%%= t("helpers.actions") %></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    initDatatable();
+    var table_<%= plural_table_name %>_<%%= id %> = $('#table-<%= plural_table_name %>-<%%= id %>').DataTable({
+        stateSave: true,
+        order: [
+            [0, "desc"]
+        ],
+        info: true,
+        serverSide: true,
+        processing: true,
+        ajax: {
+            url: "<%%= datatable_url %>",
+            type: "POST",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+            }
+        },
+        columns: [
+            { "data": "index", "class": "col-md-1 coluna-index" },
+            <% attributes.without(name_attribute).each do |attribute| -%>
+                <% unless attribute.name.downcase == 'deleted_at' %>
+                    { "data": "<%= attribute.name.downcase %>" },
+                <% end %>	
+            <% end %>	
+            { "data": "opcoes", "class": "rowlink-skip coluna-opcoes", "orderable": false }
+        ],
+        initComplete: function() {
+            var api = this.api();
+            // Atrasa a consulta para evitar requisições a cada caracter digitado
+            $(".table-<%= plural_table_name %>").closest("div.table-responsive").find('div.dataTables_filter input').off('keyup.DT input.DT');
+            var searchDelay = null;
+            $(".table-<%= plural_table_name %>").closest("div.table-responsive").find('div.dataTables_filter input').on('keyup', function() {
+                var search = $(".table-<%= plural_table_name %>").closest("div.table-responsive").find('div.dataTables_filter input').val();
+                clearTimeout(searchDelay);
+                searchDelay = setTimeout(function() {
+                    if (search != null) {
+                        api.search(search).draw();
+                    }
+                }, 1000);
+            });
+        }   
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (table_<%= plural_table_name %>_<%%= id %> !== null) {
+            table_<%= plural_table_name %>_<%%= id %> .destroy();
+            table_<%= plural_table_name %>_<%%= id %> = null;
+        }
+    });
+</script>
