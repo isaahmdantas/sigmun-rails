@@ -31,7 +31,7 @@ git clone git@github.com:isaahmdantas/rails-swift.git
 
 ```
     -d postgresql
-    -m ~/rails-swift/main/template.rb
+    -m ~/rails-swift/template.rb
 ```
 
 ## Utilização
@@ -39,7 +39,7 @@ git clone git@github.com:isaahmdantas/rails-swift.git
 Para gerar uma aplicação Rails usando este template, passe a opção `-m` para `rails new`, assim: 
 
 ```bash
-    rails new sigmun -d postgresql -m ~/rails-swift/main/template.rb
+    rails new sigmun -d postgresql -m ~/rails-swift/template.rb
 ```
 
 
