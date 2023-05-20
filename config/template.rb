@@ -14,6 +14,10 @@ copy_file "config/initializers/sidekiq.rb"
 directory "config/locales", force: true
 
 
+apply "config/environments/development.rb"
+apply "config/environments/test.rb"
+
+
 route 'root "home#index"'
 route 'RESPOND_404.map { |r2|  get "/#{r2}", to: redirect("/404") } '
 route %Q(mount Sidekiq::Web => "/sidekiq" if defined?(Sidekiq) # monitoring console\n)

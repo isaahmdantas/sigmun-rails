@@ -1,0 +1,1 @@
+copy_file "db/migrate/20230520130301_habilitar_uuid.rb"

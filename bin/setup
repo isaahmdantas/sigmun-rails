@@ -10,14 +10,14 @@ def setup!
     run "yarn install" if File.exist?("yarn.lock")
 
     copy "config/application.yml.tt", "config/application.yml"
-
-    generate "audited:install"
-
-    run "wheneverize ."
     
+    generate "audited:install"
     generate "protokoll:migration"
     generate "seed_migration:install:migrations"
 
+    run "wheneverize ."
+    
+  
     run "bin/rails db:drop db:create db:migrate"
   end
 end

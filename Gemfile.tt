@@ -44,6 +44,9 @@ group :development, :test do
     <%= gemfile_entry "selenium-webdriver" -%>
     <%= gemfile_entry "webdrivers" -%>
 
+    # Utilidades 
+    gem "letter_opener"
+
     # Segurança
     gem 'brakeman'
 
@@ -60,7 +63,7 @@ end
 gem "sidekiq"
 
 # Configuração 
-
+gem 'figaro'
 
 # Utilidades
 gem 'acts_as_paranoid'

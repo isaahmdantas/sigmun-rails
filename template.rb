@@ -25,7 +25,7 @@ def apply_template!
 
     copy_file "Procfile"
     copy_file "package.json"
-    
+
     apply "bin/template.rb"
     apply "config/template.rb"
     apply "lib/template.rb"
