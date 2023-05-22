@@ -11,12 +11,9 @@ def setup!
 
     copy "config/application.yml.tt", "config/application.yml"
     
-    run "rails generate audited:install"
-    run "rails g protokoll:migration"
-    run "rake seed_migration:install:migrations"
-
     run "bundle exec wheneverize ."
-    
+
+    run "bin/rails db:environment:set RAILS_ENV=development"
   
     run "bin/rails db:drop db:create db:migrate"
   end
