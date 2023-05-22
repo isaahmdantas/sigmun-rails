@@ -55,19 +55,18 @@ Se você instalou este template como padrão (usando `~/.railsrc` conforme descr
 
 Concluir a configuração do template: 
 ```bash
-    cd ~/app-name 
-```
-
-```bash
+    cd ~/sigmun
     bundle exec bin/setup 
 ```
+
 
 ## O que isso faz?
 
 O template executará as seguintes etapas:
 
-1. Gera os arquivos e diretórios da aplicação com base nos estilos e componentes do 'sigmun-hero'
-2. Cria os banco de dados de desenvolvimento e teste 
+1. Gera os arquivos e diretórios da aplicação com base nos estilos e componentes do [sigmun-hero](https://github.com/heronildesjr/sigmun-hero)
+2. Gera toda configuração padrão dos projetos Rails
+
 
 #### Essas gems são adicionadas à pilha padrão do Rails
 

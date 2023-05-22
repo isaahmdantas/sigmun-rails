@@ -28,8 +28,9 @@ directory "app/views/shared", force: true
 directory "app/views/errors", force: true
 directory "app/views/audits", force: true
 
-template "app/views/layouts/application.html.erb.tt", "app/views/layouts/application.html.erb", force: true
-copy_file "app/views/layouts/cruds.html.erb"
-template "app/views/layouts/mailer.html.erb.tt", "app/views/layouts/mailer
-
+copy_file "app/views/layouts/application.html.erb", force: true
+copy_file "app/views/layouts/mailer.html.erb", force: true
 template "app/views/home/index.html.erb.tt"
+
+copy_file "app/views/layouts/cruds.html.erb"
+copy_file "app/views/layouts/erro.html.erb"

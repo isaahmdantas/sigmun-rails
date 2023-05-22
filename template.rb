@@ -70,6 +70,7 @@ def apply_template!
         say
         say "Para começar a usar seu novo aplicativo:", :green
         say "cd #{app_name} - Alterne para o diretório do seu novo aplicativo."
+        say "bundle exec bin/setup - Concluir a configuração do template."
       end
 
     end
