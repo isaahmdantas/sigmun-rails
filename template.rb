@@ -23,7 +23,6 @@ def apply_template!
     template "ruby-version.tt", ".ruby-version", force: true
 
     copy_file "Procfile"
-    copy_file "package.json"
 
     apply "bin/template.rb"
     apply "config/template.rb"
