@@ -5,7 +5,6 @@ require "json"
 
 RAILS_REQUIREMENT = "~> 7.0.0".freeze
 
-
 # Aplicar o template no projeto rails 
 def apply_template!
     assert_minimum_rails_version
@@ -137,3 +136,7 @@ end
 def any_local_git_commits?
   system("git log > /dev/null 2>&1")
 end
+
+
+# Executar todo o template no novo projeto
+apply_template!
