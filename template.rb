@@ -137,6 +137,34 @@ def any_local_git_commits?
   system("git log > /dev/null 2>&1")
 end
 
+def run_with_clean_bundler_env(cmd)
+  success = if defined?(Bundler)
+              if Bundler.respond_to?(:with_original_env)
+                Bundler.with_original_env { run(cmd) }
+              else
+                Bundler.with_clean_env { run(cmd) }
+              end
+            else
+              run(cmd)
+            end
+  unless success
+    puts "Falha no comando, saindo: #{cmd}"
+    exit(1)
+  end
+end
+
+# Método para configurar o template do Gemfile
+def gemfile_entry(name, version=nil, require: true, force: false)
+  @original_gemfile ||= IO.read("Gemfile")
+  entry = @original_gemfile[/^\s*gem #{Regexp.quote(name.inspect)}.*$/]
+  return if entry.nil? && !force
+
+  require = (entry && entry[/\brequire:\s*([\S]+)/, 1]) || require
+  version = (entry && entry[/, "([^"]+)"/, 1]) || version
+  args = [name.inspect, version&.inspect, ("require: false" if require != true)].compact
+  "gem #{args.join(", ")}\n"
+end
+
 
 # Executar todo o template no novo projeto
 apply_template!

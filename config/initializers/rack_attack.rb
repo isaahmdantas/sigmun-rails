@@ -27,7 +27,7 @@ Rack::Attack.blocklist('block PRI requests') do |req|
     req.request_method == 'PRI'
 end
 
-Rack::Attack.blocklisted_response = lambda do |env|
+Rack::Attack.blocklisted_responder = lambda do |env|
   # Personalize a resposta de bloqueio de acordo com suas necessidades
   [403, {}, ['Blocked']]
 end

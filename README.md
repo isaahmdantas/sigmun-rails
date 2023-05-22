@@ -3,7 +3,7 @@
 
 ## Descrição
 
-Template para criar projetos em Ruby on Rails para os futuros projetos da Prefeitura Municipal de Mossoró utilizando o template [sigmun-hero](https://github.com/heronildesjr/sigmun-hero) que foi desenvolvido para o sistema de gestão de municípios SIGMun.
+Template para criar os futuros projetos da Prefeitura Municipal de Mossoró utilizando o framework Ruby on Rails e o template html [sigmun-hero](https://github.com/heronildesjr/sigmun-hero) que foi desenvolvido para o sistema de gestão de municípios SIGMun.
 
 ## Requisitos 
 
@@ -53,6 +53,15 @@ Se você instalou este template como padrão (usando `~/.railsrc` conforme descr
     rails new sigmun
 ```
 
+Concluir a configuração do template: 
+```bash
+    cd ~/app-name 
+```
+
+```bash
+    bundle exec bin/setup 
+```
+
 ## O que isso faz?
 
 O template executará as seguintes etapas:
@@ -94,7 +103,6 @@ O template executará as seguintes etapas:
     * [shoulda](https://github.com/thoughtbot/shoulda) - Shoulda ajuda você a escrever testes específicos do Rails mais compreensíveis e sustentáveis ​​sob Minitest e Test::Unit.
     * [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
     * [faker](https://github.com/faker-ruby/faker) - É uma biblioteca para gerar dados falsos, como nomes, endereços e números de telefone.
-
 
 ## Créditos 
 

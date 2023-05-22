@@ -20,11 +20,8 @@ Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, confir
 
 ## Primeiros passos
 
-* rails db:create 
-* rails db:migrate 
-* rails seed:migrate 
-* npm install 
-* rails s
+* bundle exec bin/setup
+* rails s 
 
 
 Acesse o aplicativo em <http://localhost:3000/>.

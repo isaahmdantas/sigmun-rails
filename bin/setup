@@ -11,15 +11,23 @@ def setup!
 
     copy "config/application.yml.tt", "config/application.yml"
     
-    generate "audited:install"
-    generate "protokoll:migration"
-    generate "seed_migration:install:migrations"
+    run "rails generate audited:install"
+    run "rails g protokoll:migration"
+    run "rake seed_migration:install:migrations"
 
-    run "wheneverize ."
+    run "bundle exec wheneverize ."
     
   
     run "bin/rails db:drop db:create db:migrate"
   end
+end
+
+require "bundler/inline"
+require "fileutils"
+
+gemfile do
+  source "https://rubygems.org"
+  gem "highline"
 end
 
 def within_project_root(&)
