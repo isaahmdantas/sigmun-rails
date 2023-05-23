@@ -45,6 +45,9 @@
     $(document).ajaxComplete(function(event,request){
         var msg=decodeURIComponent(escape(request.getResponseHeader('X-Message')));
         var type=request.getResponseHeader('X-Message-Type');
-        toastify(msg, type);
+
+        if (msg != null && msg != 'error, warning, notice' && type != null && type != '[:error, :warning, :notice]')  {
+           toastify(msg, type);
+        }
     });
 </script>
