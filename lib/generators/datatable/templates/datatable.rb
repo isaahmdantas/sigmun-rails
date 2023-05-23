@@ -1,5 +1,5 @@
 class <%= class_name %>Datatable
-    delegate :params, :h, :t, :link_to, :content_tag, 
+    delegate :params, :h, :t, :link_to, :button_to, :content_tag, 
         :<%= singular_table_name %>_path, 
         :edit_<%= singular_table_name %>_path, to: :@view
   
@@ -58,7 +58,7 @@ class <%= class_name %>Datatable
                         data: { toggle: 'tooltip', placement: 'top' } }) do
                 content_tag(:i, '', class: 'bi bi-pencil') + ' Editar'
                 end).to_s +
-            (link_to <%= singular_table_name %>_path(<%= singular_table_name %>),
+            (button_to <%= singular_table_name %>_path(<%= singular_table_name %>),
                         method: :delete,
                         data: { confirm: t('helpers.links.confirm_destroy', model: <%= singular_table_name %>.model_name.human), toggle: 'tooltip', placement: 'top' },
                         remote: @remote,

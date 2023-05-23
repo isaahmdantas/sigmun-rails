@@ -1,6 +1,4 @@
 # isaahmdantas/rails-swift
-
-
 ## Descrição
 
 Template para criar os futuros projetos da Prefeitura Municipal de Mossoró utilizando o framework Ruby on Rails e o template html [sigmun-hero](https://github.com/heronildesjr/sigmun-hero) que foi desenvolvido para o sistema de gestão de municípios SIGMun.
@@ -39,7 +37,7 @@ git clone git@github.com:isaahmdantas/rails-swift.git
 Para gerar uma aplicação Rails usando este template, passe a opção `-m` para `rails new`, assim: 
 
 ```bash
-    rails new sigmun -d postgresql -m ~/rails-swift/template.rb
+rails new sigmun -d postgresql -m ~/rails-swift/template.rb
 ```
 
 
@@ -50,13 +48,13 @@ O único banco de dados suportado por este template é o `postgresql`.
 Se você instalou este template como padrão (usando `~/.railsrc` conforme descrito acima), tudo o que você precisa fazer é executar:
 
 ```bash
-    rails new sigmun
+rails new sigmun
 ```
 
 Concluir a configuração do template: 
 ```bash
-    cd ~/sigmun
-    bundle exec bin/setup 
+cd ~/sigmun
+bundle exec bin/setup 
 ```
 
 ### Mandeira rápida de gerar um crud: 

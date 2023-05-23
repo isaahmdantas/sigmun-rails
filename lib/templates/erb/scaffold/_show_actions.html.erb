@@ -6,7 +6,7 @@
     <i class="bi bi-pencil"></i> Editar
 <%% end %>
 
-<%%= link_to <%= singular_table_name %>_path(<%= singular_table_name %>), :remote=> remote,
+<%%= button_to <%= singular_table_name %>_path(<%= singular_table_name %>), :remote=> remote,
     :method => 'delete',
     :data => { :confirm => "Tem certeza que deseja remover?"},
     :class => 'btn btn-danger me-2' do %>
