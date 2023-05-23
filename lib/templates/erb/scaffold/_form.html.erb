@@ -3,6 +3,7 @@
 
 
 <%%= form_with(model: <%= model_resource_name %>, remote: remote, class: "" ) do |form| %>
+    <!-- Note: Para adicionar campo obrigatório é só adicionar a classe '.label-required' no label. -->
     <div class="card-body">
         <% attributes.each do |attribute| -%>
             <% if attribute.password_digest? -%>

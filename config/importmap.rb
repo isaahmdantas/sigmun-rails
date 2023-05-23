@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 
 
 pin "sigmun", to: 'sigmun.js', preload: true
+pin "custom", to: "custom.js"

@@ -1,6 +1,10 @@
-/* geral */
+/* form */
 form.button_to {
     all: unset;
+}
+
+.required {
+    color: #dc3545;
 }
 
 /* datatable - jQuery Datatable */
