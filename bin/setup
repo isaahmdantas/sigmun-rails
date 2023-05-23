@@ -13,6 +13,8 @@ def setup!
     
     run "bundle exec wheneverize ."
 
+    run "bin/rails generate rspec:install"
+
     run "bin/rails db:environment:set RAILS_ENV=development"
   
     run "bin/rails db:drop db:create db:migrate"
