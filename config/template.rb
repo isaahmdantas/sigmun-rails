@@ -8,6 +8,7 @@ end
 
 copy_file "config/initializers/date_time_formats.rb"
 copy_file "config/initializers/rack_attack.rb"
+copy_file "config/initializers/field_error_proc.rb"
 copy_file "config/initializers/routes_exceptions.rb"
 copy_file "config/initializers/sidekiq.rb"
 
