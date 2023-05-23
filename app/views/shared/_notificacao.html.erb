@@ -2,39 +2,37 @@
     function toastify(message, type) {
         var backgroundColor = type == 'success' || type == 'notice' ? '#4fbe87' : type == 'warning' ? '#ffc107' : type == 'info' ? '#0dcaf0' : type == 'error' ? "#f83f37" : "#6c757d";
 
-        Toastify({
-            text: message,
-            duration: 3000,
-            close: true,
-            gravity: "bottom",
-            position: "right",
-            backgroundColor: backgroundColor,
-            stopOnFocus: true,
-            className: "rounded",
-            onClick: function() {}
-        }).showToast();
+        if(message && type && backgroundColor){
+            Toastify({
+                text: message,
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                backgroundColor: backgroundColor,
+                stopOnFocus: true,
+                className: "rounded",
+                onClick: function() {}
+            }).showToast();
+        }
     }
 
     function flashMessages(type,msg){
-        toastr.options.closeButton=true;
-        toastr.options.preventDuplicates=true;
-        toastr.options.escapeHtml=true;
-        
         switch(type){
             case "alert":
-                toastr.error(msg,"Erro!");
+                toastify(msg, "error");
                 break;
             case "error":
-                toastr.error(msg,"Erro!");
+                toastify(msg, "error");
                 break;
             case "notice":
-                toastr.success(msg,"Sucesso!");
+                toastify(msg, "success");
                 break;
             case "warning":
-                toastr.warning(msg,"Alerta!");
+                toastify(msg, "warning");
                 break;
             case "info":
-                toastr.info(msg,"Informação!");
+                toastify(msg, "info");
                 break;
         }
     } 
