@@ -1,0 +1,9 @@
+/* geral */
+form.button_to {
+    all: unset;
+}
+
+/* datatable - jQuery Datatable */
+.sm-hero__datatable-actions button.btn.btn-sm, .sm-hero__datatable-actions .btn-group-sm > button.btn  {
+    padding: 0 0.5rem;
+}
