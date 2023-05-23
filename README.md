@@ -59,6 +59,16 @@ Concluir a configuração do template:
     bundle exec bin/setup 
 ```
 
+Mandeira rápida de gerar um crud: 
+
+```bash 
+    rails g scaffold Post title:string description:text active:boolean deleted_at:datetime:index 
+```
+
+Como gerar o datatable da classe 
+```bash 
+    rails generate datatable Post
+``` 
 
 ## O que isso faz?
 
@@ -66,6 +76,7 @@ O template executará as seguintes etapas:
 
 1. Gera os arquivos e diretórios da aplicação com base nos estilos e componentes do [sigmun-hero](https://github.com/heronildesjr/sigmun-hero)
 2. Gera toda configuração padrão dos projetos Rails
+3. Gerador para criar as classes Datatable dos Models 
 
 
 #### Essas gems são adicionadas à pilha padrão do Rails

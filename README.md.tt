@@ -25,6 +25,17 @@ Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, confir
 
 Acesse o aplicativo em <http://localhost:3000/>.
 
+### Mandeira rápida de gerar um crud: 
+
+```bash 
+    rails g scaffold Post title:string description:text active:boolean deleted_at:datetime:index 
+```
+
+### Como gerar o datatable da classe 
+```bash 
+    rails generate datatable Post
+``` 
+
 ## Documentação do template 
 
 * [sigmun-hero](https://github.com/heronildesjr/sigmun-hero/blob/master/dist/docs.html)
