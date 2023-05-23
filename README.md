@@ -71,6 +71,14 @@ rails g scaffold Post title:string description:text active:boolean deleted_at:da
 rails generate datatable Post
 ``` 
 
+### Como gerar o arquivo de tradução da classe
+
+* Lembre-se: será necessário traduzir para o 'português correto'.
+
+```bash 
+rails generate locale Post
+``` 
+
 ## O que isso faz?
 
 O template executará as seguintes etapas:

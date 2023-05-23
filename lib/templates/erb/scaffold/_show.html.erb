@@ -13,4 +13,7 @@
       <% end %>
     </dl>
   </div>
+  <div class="col-md-12">
+    <%%=  render partial: "audits/table", locals: {audits: resource.try(:own_and_associated_audits), show_collapse: 'show'} %%>
+  </div>
 </div>
