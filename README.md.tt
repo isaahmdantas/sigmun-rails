@@ -28,12 +28,13 @@ Acesse o aplicativo em <http://localhost:3000/>.
 ### Mandeira rápida de gerar um crud: 
 
 ```bash 
-    rails g scaffold Post title:string description:text active:boolean deleted_at:datetime:index 
+rails g scaffold Post title:string description:text active:boolean deleted_at:datetime:index 
 ```
+> Sempre ao gerar o crud adicionar o atributo `deleted_at:datetime:index`
 
 ### Como gerar o datatable da classe 
 ```bash 
-    rails generate datatable Post
+rails generate datatable Post
 ``` 
 
 ## Documentação do template 

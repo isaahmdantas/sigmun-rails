@@ -59,15 +59,16 @@ Concluir a configuração do template:
     bundle exec bin/setup 
 ```
 
-Mandeira rápida de gerar um crud: 
+### Mandeira rápida de gerar um crud: 
 
 ```bash 
-    rails g scaffold Post title:string description:text active:boolean deleted_at:datetime:index 
+rails g scaffold Post title:string description:text active:boolean deleted_at:datetime:index 
 ```
+> Sempre ao gerar o crud adicionar o atributo `deleted_at:datetime:index`
 
-Como gerar o datatable da classe 
+### Como gerar o datatable da classe 
 ```bash 
-    rails generate datatable Post
+rails generate datatable Post
 ``` 
 
 ## O que isso faz?
