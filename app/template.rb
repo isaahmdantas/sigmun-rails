@@ -7,6 +7,7 @@ copy_file "app/controllers/audits_controller.rb"
 
 
 copy_file "app/helpers/layout_helper.rb"
+copy_file "app/helpers/form_error_helper.rb"
 
 
 insert_into_file "app/controllers/application_controller.rb", after: /^class ApplicationController.*\n/ do
@@ -30,7 +31,6 @@ directory "app/views/audits", force: true
 
 copy_file "app/views/layouts/application.html.erb", force: true
 copy_file "app/views/layouts/mailer.html.erb", force: true
-template "app/views/home/index.html.erb.tt"
+template "app/views/home/<%= root_path %>.erb.tt"
 
-copy_file "app/views/layouts/cruds.html.erb"
 copy_file "app/views/layouts/erro.html.erb"

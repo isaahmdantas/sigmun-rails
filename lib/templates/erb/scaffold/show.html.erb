@@ -19,7 +19,7 @@
         </div>
         <div class="card-footer">
           <%%= link_to <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" do  %>
-            <i class="bi bi-arrow-left"></i> t("helpers.links.back")
+            <i class="bi bi-arrow-left"></i> <%%= t("helpers.links.back") %>
           <%% end %>
           <%%= render 'show_actions' , <%= singular_table_name %>: @<%= singular_table_name %> %>
         </div>

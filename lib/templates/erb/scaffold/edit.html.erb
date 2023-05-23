@@ -10,11 +10,14 @@
 
 <section id="create-form-container">
     <h2><%%= t('helpers.titles.edit', :model=> model_class.model_name.human.titleize) %></h2>
+
+    <%%= error_messages(@<%= model_resource_name %>) %>
+
     <div class="row">
         <div class="col-md-12">
             <!-- commom bootstrap form -->
             <div class="card mb-4">
-                <%%= render 'form' %>
+                <%%= render "form" , <%= singular_table_name %>: @<%= singular_table_name %> %>
             </div>
         </div>
     </div>
