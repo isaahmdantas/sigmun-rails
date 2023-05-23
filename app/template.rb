@@ -4,10 +4,10 @@ copy_file "app/controllers/home_controller.rb"
 copy_file "app/controllers/errors_controller.rb"
 copy_file "app/controllers/audits_controller.rb"
 
-
-
 copy_file "app/helpers/layout_helper.rb"
 copy_file "app/helpers/form_error_helper.rb"
+
+copy_file "app/models/concerns/searchrable.rb"
 
 
 insert_into_file "app/controllers/application_controller.rb", after: /^class ApplicationController.*\n/ do
