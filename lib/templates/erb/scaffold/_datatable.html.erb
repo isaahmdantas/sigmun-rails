@@ -32,6 +32,8 @@
                         <th><%%= model_class.human_attribute_name(:<%= attribute.name.downcase %>) %></th>
                     <% end %>
                 <% end -%>
+                <th><%%= model_class.human_attribute_name(:created_at) %></th>
+                <th><%%= model_class.human_attribute_name(:updated_at) %></th>
                 <th><%%= t("helpers.actions") %></th>
             </tr>
         </thead>
@@ -64,6 +66,8 @@
                     { "data": "<%= attribute.name.downcase %>" },
                 <% end %>	
             <% end %>	
+            { "data": "created_at" },
+            { "data": "updated_at" },
             { "data": "opcoes", "class": "rowlink-skip coluna-opcoes", "orderable": false }
         ],
         initComplete: function() {

@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      <%= singular_table_name %>:
+        one: <%= singular_table_name.capitalize %>
+        other: <%= plural_table_name.capitalize %>
+    attributes:
+      <%= singular_table_name %>:
+        <% singular_table_name.capitalize.constantize.attribute_names.each do |attribute|  -%>
+        <%= attribute%>: <%= attribute.upcase %> 
+        <% end %>

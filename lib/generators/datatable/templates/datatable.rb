@@ -37,7 +37,11 @@ class <%= class_name %>Datatable
         <% singular_table_name.capitalize.constantize.attribute_names.each do |attribute|  -%>
             <% if attribute != 'deleted_at' && attribute != 'id' %>
                 def column_<%= attribute %>(<%= singular_table_name %>)
-                    <%= singular_table_name %>.try(:<%= attribute %>)
+                    <% if attribute == 'created_at' || attribute == 'updated_at' %>
+                        <%= singular_table_name %>.try(:<%= attribute %>).try(:to_fs)
+                    <% else %>
+                        <%= singular_table_name %>.try(:<%= attribute %>)
+                    <% end %>
                 end
             <% end %>
         <% end %>
@@ -98,7 +102,7 @@ class <%= class_name %>Datatable
         end
     
         def sort_column
-            columns = <%= singular_table_name.capitalize.constantize.attribute_names %>
+            columns = <%= singular_table_name.capitalize.constantize.attribute_names.reject{|e| e == 'deleted_at' } %>
             columns[params[:order]['0'][:column].to_i]
         end
 
