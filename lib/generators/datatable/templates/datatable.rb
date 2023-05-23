@@ -23,35 +23,49 @@ class <%= class_name %>Datatable
             <%= plural_table_name %>.each_with_index.map do |<%= singular_table_name %>, index|
                 {
                     'index' => (index + 1) + ((page - 1) * per_page),
+                    <% singular_table_name.capitalize.constantize.attribute_names.each do |attribute|  -%>
+                        <% if attribute != 'deleted_at' && attribute != 'id' %>
+                            '<%= attribute %>' => column_<%= attribute %>(<%= singular_table_name %>),
+                        <% end  %>
+                    <% end %>
+                    'opcoes' => column_opcoes(<%= singular_table_name %>)
                 }
             end
         end
 
 
         <% singular_table_name.capitalize.constantize.attribute_names.each do |attribute|  -%>
-            def column_<%= attribute %>(<%= singular_table_name %>)
-                <%= singular_table_name %>.try(:<%= attribute %>)
-            end
+            <% if attribute != 'deleted_at' && attribute != 'id' %>
+                def column_<%= attribute %>(<%= singular_table_name %>)
+                    <%= singular_table_name %>.try(:<%= attribute %>)
+                end
+            <% end %>
         <% end %>
 
         
         def column_opcoes(<%= singular_table_name %>)
             opcoes = (link_to(<%= singular_table_name %>_path(<%= singular_table_name %>),
-                    { remote: @remote, class: 'btn btn-primary btn-icon btn-sm', title: 'Visualizar',
+                    { remote: @remote, class: 'btn btn-sm btn-primary text-white me-2', title: 'Visualizar',
                     data: { toggle: 'tooltip', placement: 'top' } }) do
-            content_tag(:i, '', class: 'bi bi-search')
+                content_tag :i, '', class: 'bi bi-search' do 
+                    'Visualizar'
+                end
             end).to_s +
             (link_to(edit_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                        { remote: @remote, class: 'btn btn-warning btn-icon btn-sm', title: 'Editar',
+                        { remote: @remote, class: 'btn btn-sm btn-warning text-dark me-2', title: 'Editar',
                         data: { toggle: 'tooltip', placement: 'top' } }) do
-                content_tag(:i, '', class: 'bi bi-pencil')
+                    content_tag :i, '', class: 'bi bi-pencil' do 
+                        'Editar'
+                    end
                 end).to_s +
             (link_to <%= singular_table_name %>_path(<%= singular_table_name %>),
                         method: :delete,
                         data: { confirm: t('helpers.links.confirm_destroy', model: <%= singular_table_name %>.model_name.human), toggle: 'tooltip', placement: 'top' },
                         remote: @remote,
-                        class: 'btn btn-danger btn-icon btn-sm', title: 'Remover' do
-                content_tag(:i, '', class: 'bi bi-trash')
+                        class: 'btn btn-sm btn-danger text-white me-2', title: 'Remover' do
+                    content_tag :i, '', class: 'bi bi-trash' do  
+                        'Remover'
+                    end
                 end).to_s
 
             opcoes.html_safe
