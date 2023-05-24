@@ -2,7 +2,7 @@ Description:
     Explain the generator
 
 Example:
-    bin/rails generate datatable Thing
+    bin/rails generate datatable Things
 
     This will create:
         what/will/it/create

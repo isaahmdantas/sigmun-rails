@@ -66,7 +66,7 @@ rails g scaffold Post title:string description:text active:boolean deleted_at:da
 
 ### Como gerar o datatable da classe 
 ```bash 
-rails generate datatable Post
+rails generate datatable Posts
 ``` 
 
 ### Como gerar o arquivo de tradução da classe
