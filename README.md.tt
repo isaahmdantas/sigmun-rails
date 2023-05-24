@@ -39,7 +39,7 @@ rails generate datatable Posts
 
 ### Como gerar o arquivo de tradução da classe
 
-* Lembre-se: será necessário traduzir para o 'português correto'.
+* Lembre-se: Ainda será necessário traduzir os atributos gramaticalmente.
 
 ```bash 
 rails generate locale Post

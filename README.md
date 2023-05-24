@@ -71,7 +71,7 @@ rails generate datatable Posts
 
 ### Como gerar o arquivo de tradução da classe
 
-* Lembre-se: será necessário traduzir para o 'português correto'.
+* Lembre-se: Ainda será necessário traduzir os atributos gramaticalmente.
 
 ```bash 
 rails generate locale Post
@@ -84,6 +84,7 @@ O template executará as seguintes etapas:
 1. Gera os arquivos e diretórios da aplicação com base nos estilos e componentes do [sigmun-hero](https://github.com/heronildesjr/sigmun-hero)
 2. Gera toda configuração padrão dos projetos Rails
 3. Gerador para criar as classes Datatable dos Models 
+4. Gerador para criar os arquivos de localização dos Models
 
 
 #### Essas gems são adicionadas à pilha padrão do Rails
