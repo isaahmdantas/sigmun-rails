@@ -18,8 +18,7 @@ directory "config/locales", force: true
 apply "config/environments/development.rb"
 apply "config/environments/test.rb"
 
-copy_file "config/importmap.rb", force: true
-
+template "config/importmap.rb.tt", "config/importmap.rb", force: true
 
 route 'root "home#index"'
 route 'RESPOND_404.map { |r2|  get "/#{r2}", to: redirect("/404") } '

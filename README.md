@@ -74,7 +74,7 @@ rails generate datatable Posts
 * Lembre-se: Ainda será necessário traduzir os atributos gramaticalmente.
 
 ```bash 
-rails generate locale Post
+rails generate tradutor Post
 ``` 
 
 ## O que isso faz?

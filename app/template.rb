@@ -55,6 +55,6 @@ directory "app/views/audits", force: true
 
 copy_file "app/views/layouts/application.html.erb", force: true
 copy_file "app/views/layouts/mailer.html.erb", force: true
-template "app/views/home/<%= root_path %>.erb.tt"
+template "app/views/home/index.html.erb.tt"
 
 copy_file "app/views/layouts/erro.html.erb"
