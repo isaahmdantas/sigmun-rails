@@ -11857,18 +11857,50 @@ body, html {
   color: #023e84 !important;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
-.btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus,
-.btn-primary.active:hover, .open > .dropdown-toggle.btn-primary, .open > .dropdown-toggle.btn-primary:focus,
-.open > .dropdown-toggle.btn-primary:hover, .btn-primary:active, .btn-primary.active,
-.show > .btn-primary.dropdown-toggle, .btn-primary:active:focus, .btn-primary:active:hover,
-.btn-primary.active:focus, .btn-primary.active:hover, .show > .btn-primary.dropdown-toggle:focus,
-.show > .btn-primary.dropdown-toggle:hover, .text-bg-primary {
-  background-color: #003169 !important;
-  border-color: #003169 !important;
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.text-secondary {
+  color: #6c757d;
+}
+
+.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.show > .btn-primary.dropdown-toggle:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0 0);
   color: #fff !important;
 }
 
+.btn-primary.active,
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5) 0 0);
+  color: #fff !important;
+}
+
+.btn-primary:focus, .btn-primary:active, .btn-primary.active,
+.btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary, .open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle, .btn-primary:active:focus,
+.btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus, .text-bg-primary {
+  background-color: #003169;
+  border-color: #003169;
+  color: #fff !important;
+}
+
+.btn.btn-outline-primary {
+  color: #023e84 !important;
+  border-color: #023e84 !important;
+}
+
+.btn.btn-outline-primary:hover, .btn.btn-outline-primary:active {
+  background-color: #023e84 !important;
+  border-color: #023e84 !important;
+  color: #fff !important;
+}
+
+/*custom*/
 html, body {
   font-family: "Inter", sans-serif, sans-serif;
 }
@@ -12282,14 +12314,63 @@ table.dataTable tfoot th {
 .fade-in {
   opacity: 1;
   transition: all 0.2s ease-in-out;
-  animation: fade 0.2s ease-in-out;
+  animation: fadeIn 0.2s ease-in-out;
 }
 
-@keyframes fade {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+aside.expansible .nav-link {
+  text-align: center;
+}
+
+aside.expansible .nav-link {
+  text-indent: 9999px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+}
+
+aside.expansible .nav-link.align-center {
+  justify-content: center;
+  align-items: center;
+}
+
+aside.expansible.expanded .nav-link {
+  text-indent: 0;
+}
+
+.expansible .nav-link .sm-hero__sidenav-link-icon {
+  text-indent: 0;
+}
+
+/* CSS para o estado expandido estatico */
+aside.expansible.expanded.mini-aside-static {
+  width: 250px !important;
+  /* Defina a largura desejada para o estado expandido */
+}
+
+.expansible.mini-aside-static {
+  overflow: hidden;
+  width: 50px !important;
+  /* Defina a largura desejada para o estado expandido */
+}
+
+/* CSS para a transição suave */
+aside {
+  transition: width 0.3s ease;
 }

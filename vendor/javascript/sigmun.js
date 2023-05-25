@@ -1,6 +1,6 @@
 /*!
 * Start sigmun with Bootstrap - SIGMun Hero Package v0.0.1 (undefined)
-* Copyright 2013-2023 Heronildes Junior
+* Copyright 2023-2023 Heronildes Junior
 * Licensed under MIT (https://github.com/heronildesjr/sigmun-hero/blob/master/LICENSE)
 */
 /*!
@@ -60,9 +60,42 @@ const sigmun = {
                 }, timeout);
             }
         },
+        toggleAside: (asideElement) => {
 
+            var asideShowElements;
+
+            if (!asideElement) {
+                asideElement = document.querySelector('aside.expansible');
+                asideShowElements = document.querySelectorAll('aside.expansible .show');
+            } else {
+                asideElement = document.querySelector(asideElement);
+                asideShowElements = document.querySelectorAll(asideElement + ' .show');
+            }
+
+            asideElement.classList.toggle('expanded');
+        }
     }
 
 };
 
 
+// aside expansível (expansible)
+// Obtém a referência para o elemento <aside>
+var asideElement = document.querySelector('aside.expansible');
+
+// Adiciona um ouvinte de evento para o evento "mouseover"
+asideElement.addEventListener('mouseover', function() {
+  // Adiciona a classe "expanded" ao <aside> ao passar o mouse sobre ele
+  asideElement.classList.add('expanded');
+});
+
+// Adiciona um ouvinte de evento para o evento "mouseout"
+asideElement.addEventListener('mouseout', function() {
+  // Remove a classe "expanded" do <aside> ao remover o mouse dele
+  asideElement.classList.remove('expanded');
+});
+
+// declare sigmun as global variable
+window.sigmun = sigmun;
+// export as module
+export default sigmun;
