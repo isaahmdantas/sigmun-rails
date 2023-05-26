@@ -22,6 +22,9 @@ def apply_template!
     template "node-version.tt", ".node-version", force: true
     template "ruby-version.tt", ".ruby-version", force: true
 
+    template "Dockerfile.tt", "Dockerfile", force: true
+    template "docker-compose.yml.tt", "docker-compose.yml", force: true
+
     copy_file "Procfile"
 
     apply "bin/template.rb"
