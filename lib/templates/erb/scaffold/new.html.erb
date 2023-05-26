@@ -1,7 +1,7 @@
 <%%- model_class=<%= singular_table_name.titleize %> -%>
 
 <%% content_for :breadcrumb do %>
-    <li class="breadcrumb-item decoration-none">
+    <li class="breadcrumb-item">
         <%%= link_to model_class.model_name.human(count: 2).titleize, <%= plural_table_name %>_path %>
     </li>
     <li class="breadcrumb-item active" aria-current="page"><%%= t('helpers.links.new') %></li>
