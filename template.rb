@@ -74,14 +74,14 @@ def apply_template!
         git checkout: "-b main"
         git add: "-A ."
         git commit: "-n -m 'Configuração do projeto'"
-
-
         say
         say "Aplicativo #{app_name} criado com sucesso!", :blue
         say
         say "Para começar a usar seu novo aplicativo:", :green
         say "cd #{app_name} - Alterne para o diretório do seu novo aplicativo."
-        say "bundle exec bin/setup - Concluir a configuração do template."
+        say "bundle exec bin/setup -  Concluir a configuração do Rspec,Cron e etc."
+        say "bin/rails db:create - Criar o banco de dados"
+        say "bin/rails db:migrate - Rodar as migrações padrões do projeto"
       end
 
     end
