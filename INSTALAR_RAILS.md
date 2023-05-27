@@ -138,6 +138,12 @@ rails new sigmun -d postgresql
 Ou considere usar o template criado para os futuros projetos da PMM: 
 
 
+```bash 
+rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+```
+
+ou 
+
 ```bash
 rails new sigmun -d postgresql -m ~/rails-swift/template.rb
 ```
@@ -145,5 +151,7 @@ rails new sigmun -d postgresql -m ~/rails-swift/template.rb
 Rodar a aplicação: 
 
 ```bash
+cd ~/sigmun
+bundle exec bin/setup 
 rails s
 ```

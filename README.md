@@ -15,26 +15,36 @@ Este template atualmente funciona com:
 
 Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby on Rails, confira meu [Guia de Instalação](https://github.com/isaahmdantas/rails-swift/blob/main/INSTALAR_RAILS.md)
 
-## Instalação
 
-- Clone o respositório para um diretório da sua preferência: 
-```
-git clone git@github.com:isaahmdantas/rails-swift.git
-```
+
+## Instalação  
+
+*Caso prefira rodar localmente é preciso realizar o clone do repositório para um diretório da sua preferência (git clone git@github.com:isaahmdantas/rails-swift.git).* 
 
 *Opcional.*
 
 - Para tornar este o modelo de aplicativo Rails padrão em seu sistema, crie um arquivo `~/.railsrc` com este conteúdo:
 
+```
+    -d postgresql 
+    -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+```
+
+ou
 
 ```
-    -d postgresql
-    -m ~/rails-swift/template.rb
+    -d postgresql -m ~/rails-swift/template.rb
 ```
 
 ## Utilização
 
 Para gerar uma aplicação Rails usando este template, passe a opção `-m` para `rails new`, assim: 
+
+```bash 
+rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+```
+
+ou 
 
 ```bash
 rails new sigmun -d postgresql -m ~/rails-swift/template.rb
