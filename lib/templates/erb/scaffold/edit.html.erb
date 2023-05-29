@@ -1,4 +1,5 @@
 <%%- model_class=<%= singular_table_name.titleize %> -%>
+<%% remote ||= remote || params.try(:[], :remote) %>
 
 <%% content_for :breadcrumb do %>
     <li class="breadcrumb-item">
@@ -17,7 +18,16 @@
         <div class="col-md-12">
             <!-- commom bootstrap form -->
             <div class="card mb-4">
-                <%%= render "form" , <%= singular_table_name %>: @<%= singular_table_name %> %>
+                <%% if remote == true || remote == 'true' %>
+                    <%%= render "shared/remote_modal", 
+                        modal_class: "#{model_class.model_name.human.titleize}", 
+                        modal_title: t('helpers.titles.edit', 
+                        :model=> model_class.model_name.human.titleize) do %>
+                            <%%= render "form" , <%= singular_table_name %>: @<%= singular_table_name %>, remote: true  %>
+                    <%%  end %>
+                <%% else %>
+                    <%%= render "form" , <%= singular_table_name %>: @<%= singular_table_name %> %>
+                <%% end %>
             </div>
         </div>
     </div>

@@ -35,15 +35,15 @@ class <%= controller_class_name %>Controller < ApplicationController
         notice = <%= "'#{human_name} cadastrado(a) com sucesso.'" %>
         respond_to do |format|
             if @<%= orm_instance.save %>
+                remote = params.try(:[], :remote)
                 location = [@<%= singular_table_name %>]
                 location.unshift(params[:controller].split("/")[0].to_sym) if params[:controller].split("/").length > 1
-                format.html { redirect_to location, notice: notice}
+                format.html { redirect_to remote.blank? ? location : <%= plural_table_name %>_path, notice: notice}
                 format.json { render :show, status: :created, location: @<%= singular_table_name %> }
-                format.js { flash[:notice] = notice}
             else
                 format.html { render :new, status: :unprocessable_entity }
                 format.json { render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity }
-                format.js { render :new }
+                format.turbo_stream { render :form_update, status: :unprocessable_entity }
             end
         end
     end
@@ -53,15 +53,16 @@ class <%= controller_class_name %>Controller < ApplicationController
         notice = <%= "'#{human_name} alterado(a) com sucesso.'" %>
         respond_to do |format|
             if @<%= orm_instance.update("#{singular_table_name}_params") %>
+                remote = params.try(:[], :remote)
                 location = [@<%= singular_table_name %>]
                 location.unshift(params[:controller].split("/")[0].to_sym) if params[:controller].split("/").length > 1
-                format.html { redirect_to location, notice: notice }
+                format.html { redirect_to remote.blank? ? location : <%= plural_table_name %>_path, notice: notice}
                 format.json { render :show, status: :ok, location: location }
                 format.js { flash[:notice] = notice}
             else
                 format.html { render :edit, status: :unprocessable_entity  }
                 format.json { render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity }
-                format.js { render :edit }
+                format.turbo_stream { render :form_update, status: :unprocessable_entity }
             end
         end
     end
@@ -73,7 +74,7 @@ class <%= controller_class_name %>Controller < ApplicationController
         respond_to do |format|
             format.html { redirect_to params[:controller].split("/").map(&:to_sym), notice: notice }
             format.json { head :no_content }
-            format.js { flash[:notice] = notice}
+            format.js { render partial: 'shared/errors', locals: {errors: @<%= singular_table_name %>.errors} }
         end
     end
 

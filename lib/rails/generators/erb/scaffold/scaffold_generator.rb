@@ -22,9 +22,9 @@ module Erb # :nodoc:
                     end
                 end
 
-                available_views_js.each do |view_js|
-                    filename_js = filename_with_extensions(view_js, :js)
-                    template filename_js, File.join("app/views", controller_file_path, filename_js)
+                available_views_turbo.each do |view_turbo|
+                    filename_turbo_stream = filename_with_extensions(view_turbo, :turbo_stream)
+                    template filename_turbo_stream, File.join("app/views", controller_file_path, filename_turbo_stream)
                 end
             end
 
@@ -33,8 +33,8 @@ module Erb # :nodoc:
                     %w(index edit show new _form _form_actions _show_actions _show _datatable _table)
                 end
 
-                def available_views_js
-                    %w(create destroy show new edit update)
+                def available_views_turbo
+                    %w(form_update)
                 end
 
         end

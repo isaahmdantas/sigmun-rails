@@ -2,7 +2,8 @@
 <%% id ||= Time.now.to_i %>
 
 
-<%%= form_with(model: <%= model_resource_name %>, remote: remote, class: "" ) do |form| %>
+<%%= form_with(model: <%= model_resource_name %>, data: { turbo: remote  }) do |form| %>
+    <%%= hidden_field_tag :remote, remote %>
     <!-- Note: Para adicionar campo obrigatório é só adicionar a classe '.label-required' no label. -->
     <div class="card-body">
         <% attributes.each do |attribute| -%>
@@ -34,10 +35,10 @@
             <% end %>
         <% end %>
     </div>
-    <%% unless remote %>
-        <div class="card-footer d-flex justify-content-end">
+    <div class="card-footer d-flex justify-content-end">
         <%%= render "<%= plural_table_name %>/form_actions" %>
+        <%% unless remote %>
             <%%= link_to "<i class='bi bi-arrow-left'></i> #{t("helpers.links.back")}".html_safe, <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" %>
-        </div>
-    <%% end %>
+        <%% end %>
+    </div>
 <%% end %>
