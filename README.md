@@ -1,4 +1,4 @@
-# isaahmdantas/rails-swift
+# isaahmdantas/sigmun-rails
 ## Descrição
 
 Template para criar os futuros projetos da Prefeitura Municipal de Mossoró utilizando o framework Ruby on Rails e o template html [sigmun-hero](https://github.com/heronildesjr/sigmun-hero) que foi desenvolvido para o sistema de gestão de municípios SIGMun.
@@ -13,13 +13,13 @@ Este template atualmente funciona com:
 * Node 16 ou superior 
 * Yarn 1.x 
 
-Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby on Rails, confira meu [Guia de Instalação](https://github.com/isaahmdantas/rails-swift/blob/main/INSTALAR_RAILS.md)
+Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby on Rails, confira meu [Guia de Instalação](https://github.com/isaahmdantas/sigmun-rails/blob/main/INSTALAR_RAILS.md)
 
 
 
 ## Instalação  
 
-*Caso prefira rodar localmente é preciso realizar o clone do repositório para um diretório da sua preferência (git clone git@github.com:isaahmdantas/rails-swift.git).* 
+*Caso prefira rodar localmente é preciso realizar o clone do repositório para um diretório da sua preferência (git clone git@github.com:isaahmdantas/sigmun-rails.git).* 
 
 *Opcional.*
 
@@ -27,13 +27,13 @@ Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby on Rail
 
 ```
     -d postgresql 
-    -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+    -m https://raw.githubusercontent.com/isaahmdantas/sigmun-rails/main/template.rb
 ```
 
 ou
 
 ```
-    -d postgresql -m ~/rails-swift/template.rb
+    -d postgresql -m ~/sigmun-rails/template.rb
 ```
 
 ## Utilização
@@ -41,13 +41,13 @@ ou
 Para gerar uma aplicação Rails usando este template, passe a opção `-m` para `rails new`, assim: 
 
 ```bash 
-rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/sigmun-rails/main/template.rb
 ```
 
 ou 
 
 ```bash
-rails new sigmun -d postgresql -m ~/rails-swift/template.rb
+rails new sigmun -d postgresql -m ~/sigmun-rails/template.rb
 ```
 
 

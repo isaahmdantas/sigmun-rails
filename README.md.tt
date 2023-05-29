@@ -15,7 +15,7 @@ Este projeto requer:
 * O PostgreSQL deve estar instalado e aceitando conexões
 
 
-Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, confira este [Guia de configuração do Rails](https://github.com/isaahmdantas/rails-swift/blob/main/INSTALAR_RAILS.md).
+Se precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, confira este [Guia de configuração do Rails](https://github.com/isaahmdantas/sigmun-rails/blob/main/INSTALAR_RAILS.md).
 
 
 ## Primeiros passos

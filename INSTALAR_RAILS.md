@@ -139,13 +139,13 @@ Ou considere usar o template criado para os futuros projetos da PMM:
 
 
 ```bash 
-rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/rails-swift/main/template.rb
+rails new sigmun -d postgresql -m https://raw.githubusercontent.com/isaahmdantas/sigmun-rails/main/template.rb
 ```
 
 ou 
 
 ```bash
-rails new sigmun -d postgresql -m ~/rails-swift/template.rb
+rails new sigmun -d postgresql -m ~/sigmun-rails/template.rb
 ```
 
 Rodar a aplicação: 
