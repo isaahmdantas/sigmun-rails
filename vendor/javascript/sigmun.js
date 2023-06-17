@@ -73,11 +73,51 @@ const sigmun = {
             }
 
             asideElement.classList.toggle('expanded');
+        },
+        showToast: (id, autohide, delay, options) => {
+            var defaultOptions = {
+                animation: true,
+                autohide: autohide || false,
+                delay: 5000
+            }
+
+            /* todo: template do toast padrão
+            var defaultTemplate = `<div id="${id}" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="https://via.placeholder.com/16x16" class="rounded me-2" alt="alt">
+                    <strong class="me-auto">Bootstrap</strong>
+                    <small></small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+
+                </div>
+            </div>`;
+
+            // todo: create new instance with defaultTemplate
+            const toast2 = new bootstrap.Toast(document.body.appendChild(document.createRange().createContextualFragment(defaultTemplate).firstChild), options ? options : defaultOptions);
+            // set toast title
+            toast2.querySelector(id + ' .toast-header strong').innerHTML = titulo;
+            // set toast content
+            toast2.querySelector(id + ' .toast-body').innerHTML = content;
+            */
+
+            const toastElList = document.querySelectorAll('.toast')
+            const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, options ? options : defaultOptions));
+
+            var toastTrigger = document.getElementById(id);
+            var toast = bootstrap.Toast.getInstance(toastTrigger);
+            toast.show();
+
+            if (autohide == true) {
+                setTimeout(() => {
+                    toast.hide();
+                }, delay ? delay : 5000);
+            }
         }
     }
 
 };
-
 
 // aside expansível (expansible)
 // Obtém a referência para o elemento <aside>
