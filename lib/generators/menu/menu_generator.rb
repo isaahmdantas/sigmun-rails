@@ -3,7 +3,7 @@ class MenuGenerator < Rails::Generators::NamedBase
 
 
   def create_header_file
-    header_file_path = "app/views/#{human_name}/partials/_menu.html.erb"
+    header_file_path = "app/views/layouts/partials/_menu.html.erb"
     
     if File.exist?(header_file_path)
       append_menu_to_file(header_file_path)
@@ -30,8 +30,13 @@ class MenuGenerator < Rails::Generators::NamedBase
           </a>
           <div class="collapse" id="collapse#{human_name}" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
             <nav class="sm-hero__sidenav-menu-nested nav">
-              <a class="nav-link" href="<%= #{plural_table_name}_path %>">- Lista</a>
-              <a class="nav-link" href="<%= new_#{singular_table_name}_path %>">- Novo(a)</a>
+              <% if namespaced? -%>
+                <a class="nav-link" href="<%= #{namespace.underscore}_#{plural_table_name}_path %>">- Lista</a>
+                <a class="nav-link" href="<%= new_#{namespace.underscore}_#{singular_table_name}_path %>">- Novo(a)</a>
+              <% else %>
+                <a class="nav-link" href="<%= #{plural_table_name}_path %>">- Lista</a>
+                <a class="nav-link" href="<%= new_#{singular_table_name}_path %>">- Novo(a)</a>
+              <% end %>
             </nav>
           </div>
         </li>

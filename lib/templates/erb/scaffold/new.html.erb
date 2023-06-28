@@ -3,7 +3,11 @@
 
 <%% content_for :breadcrumb do %>
     <li class="breadcrumb-item">
-        <%%= link_to model_class.model_name.human(count: 2).titleize, <%= plural_table_name %>_path %>
+        <% unless namespaced? %>
+            <%%= link_to model_class.model_name.human(count: 2).titleize, <%= plural_table_name %>_path %>
+        <% else %>
+            <%%= link_to model_class.model_name.human(count: 2).titleize, <%= namespace.underscore %>_<%= plural_table_name %>_path %>
+        <% end %>
     </li>
     <li class="breadcrumb-item active" aria-current="page"><%%= t('helpers.links.new') %></li>
 <%% end %>

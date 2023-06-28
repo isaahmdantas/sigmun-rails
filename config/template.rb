@@ -21,9 +21,6 @@ apply "config/environments/test.rb"
 route 'root "home#index"'
 route 'RESPOND_404.map { |r2|  get "/#{r2}", to: redirect("/404") } '
 
-route "get 'listagem', to: 'home#listagem'"
-route "get 'create', to: 'home#create'"
-
 
 
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= Rails.application.class.module_parent_name %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag "site", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <!--- gridjs Mermaid theme -->
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+
+    <!-- DataTables.net -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+    <!-- toastify-js -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>  
+  </head>
+
+  <body>
+    <%= render "layouts/partials/header" %>
+    <div id="container-center" class="container-fluid p-0 bd-layout flex-column flex-sm-column flex-md-row">
+      <%= render "layouts/partials/aside" %>
+      <main id="main-content">
+        <div class="container-fluid">
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <%= link_to 'Início', root_path %>
+              </li>
+              <%= yield(:breadcrumb) %>
+            </ol>
+          </nav>
+          <%= yield %>
+          <%= turbo_frame_tag "remote_modal", target: "_top" %>
+        </div>
+      </main>
+    </div>
+    <%= render "shared/notificacao" %>
+  </body>
+</html>

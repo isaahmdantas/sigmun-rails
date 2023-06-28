@@ -48,13 +48,10 @@ route "match '500', :to => 'errors#internal_server_error', :via => :all"
 
 route "match '/audits/show', controller: 'audits', action: 'show', via: [:get]"
 
-directory "app/views/layouts/partials", force: true
+directory "app/views/layouts", force: true
 directory "app/views/shared", force: true
 directory "app/views/errors", force: true
 directory "app/views/audits", force: true
-
-copy_file "app/views/layouts/application.html.erb", force: true
-copy_file "app/views/layouts/mailer.html.erb", force: true
 
 directory "app/views/home", force: true
 

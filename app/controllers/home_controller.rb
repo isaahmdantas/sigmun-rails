@@ -1,6 +1,4 @@
-# Renders the home page.
-class HomeController < ApplicationController
+# Renders the admin page.
+class HomeController < ActionController::Base    
     def index;end
-    def listagem;end 
-    def create;end 
 end

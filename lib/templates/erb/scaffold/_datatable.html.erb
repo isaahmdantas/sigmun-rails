@@ -3,43 +3,39 @@
 
 <%%- model_class=<%= singular_table_name.titleize %> -%>
 
-<%% id ||=Time.now.to_i %>
-<%% remote ||=remote %>
-<%% datatable_url ||=datatable_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
-<%% link_to_new ||=new_<%= singular_table_name %>_url() %>
-<%% link_to_new_remote ||=new_<%= singular_table_name %>_url(remote: true) %>
+<%% id ||= Time.now.to_i %>
+<%% remote ||= remote %>
+<% unless namespaced? -%>
+    <%% datatable_url ||= datatable_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
+    <%% link_to_new ||= new_<%= singular_table_name %>_url() %>
+<% else %>
+    <%% datatable_url ||= datatable_<%= namespace.underscore %>_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
+    <%% link_to_new ||= new_<%= namespace.underscore %>_<%= singular_table_name %>_url() %>
+<% end -%>
 
-
-<div class="sm-hero__toolbox mb-3">
-    <div class="card shadow-sm">
-        <div class="card-body p-2">
-            <%%= link_to link_to_new_remote, class: 'btn btn-sm border-0 btn-outline-success', data: {turbo_frame: "remote_modal"} do %>
-                <i class="bi bi-plus"></i> Adicionar (modal)</a>
-            <%% end %>
-            <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-outline-success' do %>
-                <i class="bi bi-link"></i> Adicionar (form externo)</a>
-            <%% end %>
-        </div>
-    </div>
-</div>
 
 <div class="card p-3">
-    <table class="table table-striped" style="width:100%" id="table-<%= plural_table_name %>-<%%= id %>">
-        <thead>
-            <tr>
-                <th>#</th>
-                <% attributes.without(name_attribute).each do |attribute| -%>
-                    <% unless attribute.name.downcase == 'deleted_at' %>
-                        <th><%%= model_class.human_attribute_name(:<%= attribute.name.downcase %>) %></th>
-                    <% end %>
-                <% end -%>
-                <th><%%= model_class.human_attribute_name(:created_at) %></th>
-                <th><%%= model_class.human_attribute_name(:updated_at) %></th>
-                <th><%%= t("helpers.actions") %></th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div class="card-body p-2">
+        <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-outline-success float-end mb-3' do %>
+            <i class="bi bi-plus"></i> Adicionar</a>
+        <%% end %>
+        <table class="table table-striped" style="width:100%" id="table-<%= plural_table_name %>-<%%= id %>">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <% attributes.without(name_attribute).each do |attribute| -%>
+                        <% unless attribute.name.downcase == 'deleted_at' %>
+                            <th><%%= model_class.human_attribute_name(:<%= attribute.name.downcase %>) %></th>
+                        <% end %>
+                    <% end -%>
+                    <th><%%= model_class.human_attribute_name(:created_at) %></th>
+                    <th><%%= model_class.human_attribute_name(:updated_at) %></th>
+                    <th><%%= t("helpers.actions") %></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 </div>
 <script type="text/javascript">
     var table_<%= plural_table_name %>_<%%= id %> = $('#table-<%= plural_table_name %>-<%%= id %>').DataTable({
@@ -73,6 +69,7 @@
         ],
         initComplete: function() {
             var api = this.api();
+            
             // Atrasa a consulta para evitar requisições a cada caracter digitado
             $(".table-<%= plural_table_name %>").closest("div.table-responsive").find('div.dataTables_filter input').off('keyup.DT input.DT');
             var searchDelay = null;

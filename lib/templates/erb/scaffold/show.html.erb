@@ -3,7 +3,11 @@
 
 <%% content_for :breadcrumb do %>
   <li class="breadcrumb-item">
+    <% unless namespaced? %>
       <%%= link_to model_class.model_name.human(count: 2).titleize, <%= plural_table_name %>_path %>
+    <% else %>
+      <%%= link_to model_class.model_name.human(count: 2).titleize, <%= namespace.underscore %>_<%= plural_table_name %>_path %>
+    <% end %>
   </li>
   <li class="breadcrumb-item active" aria-current="page"><%%= t('helpers.links.show') %></li>
 <%% end %>
@@ -28,9 +32,15 @@
           <%% end %>
         </div>
         <div class="card-footer d-flex justify-content-end">
-          <%%= link_to <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" do  %>
-            <i class="bi bi-arrow-left"></i> <%%= t("helpers.links.back") %>
-          <%% end %>
+          <% unless namespaced? %>
+            <%%= link_to <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" do  %>
+              <i class="bi bi-arrow-left"></i> <%%= t("helpers.links.back") %>
+            <%% end %>
+          <% else %>
+            <%%= link_to <%= "#{namespace.underscore}_#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" do  %>
+              <i class="bi bi-arrow-left"></i> <%%= t("helpers.links.back") %>
+            <%% end %>
+          <% end %>
           <%%= render 'show_actions' , <%= singular_table_name %>: @<%= singular_table_name %> %>
         </div>
       </div>
