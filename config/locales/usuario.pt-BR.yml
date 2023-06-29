@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    models:
+      usuario:
+        one: Usuário
+        other: Usuários
+    attributes:
+      usuario:
+        id: ID 
+        nome: Nome 
+        permissao: Permissão 
+        email: E-mail 
+        password: Senha 
+        password_confirmation: Repita a Senha
+        current_password: Senha Atual 
+        deleted_at: DATA DE EXCLUSÃO
+        created_at: DATA DE CADASTRO 
+        updated_at: DATA DE ATUALIZAÇÃO 
+        permissoes: 
+          admin: Administrador 

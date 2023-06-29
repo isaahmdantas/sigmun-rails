@@ -11,6 +11,8 @@ directory 'app/datatables/admin', force: true
 
 copy_file "app/helpers/layout_helper.rb"
 copy_file "app/helpers/form_error_helper.rb"
+copy_file "app/helpers/devise_helper.rb"
+copy_file "app/helpers/enum_i18n_helper.rb"
 
 copy_file "app/models/concerns/searchrable.rb"
 copy_file "app/models/usuario.rb"
@@ -52,12 +54,24 @@ route "match '404', :to => 'errors#not_found', :via => :all"
 route "match '422', :to => 'errors#unacceptable', :via => :all"
 route "match '500', :to => 'errors#internal_server_error', :via => :all"
 
-route "match '/audits/show', controller: 'audits', action: 'show', via: [:get]"
+route "match '/admin/audits/show', controller: 'admin/audits', action: 'show', via: [:get]"
+route "devise_for :usuarios, path: 'admin', path_names: { sign_in: 'entrar', sign_out: 'sair', password: 'alterar_senha' }"
+route "
+  namespace :admin do
+    resources :usuarios do
+      collection do
+        get 'search'
+        post 'datatable'
+      end
+    end
+  end
+"
 
 directory "app/views/layouts", force: true
 directory "app/views/shared", force: true
 directory "app/views/errors", force: true
 directory "app/views/audits", force: true
+directory "app/views/site", force: true
 
 directory "app/views/admin", force: true
 directory "app/views/devise", force: true

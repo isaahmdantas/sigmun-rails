@@ -11,6 +11,9 @@ copy_file "config/initializers/rack_attack.rb"
 copy_file "config/initializers/field_error_proc.rb"
 copy_file "config/initializers/routes_exceptions.rb"
 copy_file "config/initializers/sidekiq.rb"
+copy_file "config/initializers/devise.rb"
+copy_file 'config/initializers/assets.rb'
+copy_file 'config/initializers/inflections.rb', force: true
 
 directory "config/locales", force: true
 
@@ -23,18 +26,5 @@ route 'RESPOND_404.map { |r2|  get "/#{r2}", to: redirect("/404") } '
 
 # rotas da Área Administrativa
 route 'get "admin", controller: :admin, action: :index, as: :admin_root'
-route "devise_for :usuarios, path: 'admin', path_names: { sign_in: 'entrar', sign_out: 'sair', password: 'alterar_senha' }"
-route "match '/admin/audits/show', controller: 'admin/audits', action: 'show', via: [:get]"
-
-route "
-  namespace :admin do
-    resources :usuarios do
-      collection do
-        get 'search'
-        post 'datatable'
-      end
-    end
-  end
-"
 
 
