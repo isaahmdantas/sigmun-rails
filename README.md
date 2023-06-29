@@ -91,10 +91,7 @@ rails generate tradutor Post
 ```bash 
 rails generate menu Post 
 ``` 
-ou 
-```bash 
-rails generate menu Admin/Post 
-``` 
+
 
 ### Como atualizar a rota do crud incluindo as rotas de 'search' e a rota do 'datatable'
 ```bash 
@@ -111,6 +108,9 @@ O template executará as seguintes etapas:
 2. Gera toda configuração padrão dos projetos Rails
 3. Gerador para criar as classes Datatable dos Models 
 4. Gerador para criar os arquivos de localização dos Models
+5. Gerador para inserir um item com o menu do crud 
+6. Sistema de autenticação 
+7. Área Administrativa e Site
 
 
 #### Essas gems são adicionadas à pilha padrão do Rails

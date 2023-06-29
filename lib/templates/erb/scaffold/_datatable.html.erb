@@ -5,13 +5,13 @@
 
 <%% id ||= Time.now.to_i %>
 <%% remote ||= remote %>
-<%% datatable_url ||= datatable_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
-<%% link_to_new ||= new_<%= singular_table_name %>_url() %>
+<%% datatable_url ||= datatable_admin_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
+<%% link_to_new ||= new_admin_<%= singular_table_name %>_url() %>
 
 
 <div class="card p-3">
     <div class="card-body p-2">
-        <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-outline-success float-end mb-3' do %>
+        <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-success float-end mb-3' do %>
             <i class="bi bi-plus"></i> Adicionar</a>
         <%% end %>
         <table class="table table-striped" style="width:100%" id="table-<%= plural_table_name %>-<%%= id %>">

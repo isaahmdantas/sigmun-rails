@@ -3,6 +3,6 @@ class DatatableGenerator < Rails::Generators::NamedBase
 
 
   def create_datatable_file
-    template 'datatable.rb', File.join('app/datatables', class_path, "#{file_name}_datatable.rb")
+    template 'datatable.rb', File.join('app/datatables/admin', class_path, "#{file_name}_datatable.rb")
   end
 end

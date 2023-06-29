@@ -3,7 +3,7 @@
     
 <% end -%>
 <% module_namespacing do -%>
-class <%= controller_class_name %>Controller < ApplicationController
+class Admin::<%= controller_class_name %>Controller < AdminController
     before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
 
     # GET <%= route_url %>
@@ -36,9 +36,9 @@ class <%= controller_class_name %>Controller < ApplicationController
         respond_to do |format|
             if @<%= orm_instance.save %>
                 remote = params.try(:[], :remote)
-                location = [@<%= singular_table_name %>]
+                location = [:admin, @<%= singular_table_name %>]
                 location.unshift(params[:controller].split("/")[0].to_sym) if params[:controller].split("/").length > 1
-                format.html { redirect_to remote.blank? ? location : <%= plural_table_name %>_path, notice: notice}
+                format.html { redirect_to remote.blank? ? location : admin_<%= plural_table_name %>_path, notice: notice}
                 format.json { render :show, status: :created, location: @<%= singular_table_name %> }
             else
                 format.html { render :new, status: :unprocessable_entity }
@@ -54,9 +54,9 @@ class <%= controller_class_name %>Controller < ApplicationController
         respond_to do |format|
             if @<%= orm_instance.update("#{singular_table_name}_params") %>
                 remote = params.try(:[], :remote)
-                location = [@<%= singular_table_name %>]
+                location = [:admin, @<%= singular_table_name %>]
                 location.unshift(params[:controller].split("/")[0].to_sym) if params[:controller].split("/").length > 1
-                format.html { redirect_to remote.blank? ? location : <%= plural_table_name %>_path, notice: notice}
+                format.html { redirect_to remote.blank? ? location : admin_<%= plural_table_name %>_path, notice: notice}
                 format.json { render :show, status: :ok, location: location }
                 format.js { flash[:notice] = notice}
             else
@@ -80,7 +80,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     def datatable
         respond_to do |format|
-            format.json { render json: <%= controller_class_name %>Datatable.new(view_context) }
+            format.json { render json: Admin::<%= controller_class_name %>Datatable.new(view_context) }
         end
     end
 

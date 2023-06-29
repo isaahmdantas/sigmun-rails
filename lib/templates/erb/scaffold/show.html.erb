@@ -3,7 +3,7 @@
 
 <%% content_for :breadcrumb do %>
   <li class="breadcrumb-item">
-   <%%= link_to model_class.model_name.human(count: 2).titleize, <%= plural_table_name %>_path %>
+   <%%= link_to model_class.model_name.human(count: 2).titleize, admin_<%= plural_table_name %>_path %>
   </li>
   <li class="breadcrumb-item active" aria-current="page"><%%= t('helpers.links.show') %></li>
 <%% end %>
@@ -28,7 +28,7 @@
           <%% end %>
         </div>
         <div class="card-footer d-flex justify-content-end">
-          <%%= link_to <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" do  %>
+          <%%= link_to <%= "admin_#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" do  %>
             <i class="bi bi-arrow-left"></i> <%%= t("helpers.links.back") %>
           <%% end %>
           <%%= render 'show_actions' , <%= singular_table_name %>: @<%= singular_table_name %> %>
