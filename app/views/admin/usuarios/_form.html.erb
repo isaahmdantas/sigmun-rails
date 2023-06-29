@@ -1,0 +1,74 @@
+<% remote = false if remote == nil %>
+<% id ||= Time.now.to_i %>
+
+
+<%= form_for([:admin, @usuario], data: { turbo: remote  }) do |form| %>
+    <%= hidden_field_tag :remote, remote %>
+    <!-- Note: Para adicionar campo obrigatório é só adicionar a classe '.label-required' no label. -->
+    <div class="card-body">
+                    
+                
+                        <div class="mb-3 ">
+                            
+                                <%= form.label :nome, class: "form-label label-required"  %>
+                                
+                                    <%= form.text_field :nome, class: "form-control" %>
+                                
+                            
+                        </div>
+                
+            
+                    
+                
+                        <div class="mb-3 ">
+            
+                                <%= form.label :permissao, class: "form-label label-required"  %>
+                                <%= form.select :permissao, enum_options_for_select(Usuario, :permissao), {include_blank: false, include_hidden: false}, class: "form-control form-select select2_basico", style: "width: 100%"  %>
+                                
+                    
+                        </div>
+
+                
+            
+                    
+                
+                        <div class="mb-3 ">
+                            
+                                <%= form.label :email, class: "form-label label-required"  %>
+                                
+                                    <%= form.text_field :email, class: "form-control" %>
+                                
+                            
+                        </div>
+                
+            
+                    
+                
+                        <div class="mb-3 ">
+                            
+                                <%= form.label :password, class: "form-label label-required"  %>
+                                
+                                    <%= form.text_field :password, class: "form-control" %>
+                                
+                            
+                        </div>
+
+                        <div class="mb-3 ">
+                            
+                                <%= form.label :password_confirmation, class: "form-label label-required"  %>
+                                
+                                    <%= form.text_field :password_confirmation, class: "form-control" %>
+                                
+                            
+                        </div>
+                
+            
+        
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+        <%= render "admin/usuarios/form_actions" %>
+        <% unless remote %>
+            <%= link_to "<i class='bi bi-arrow-left'></i> #{t("helpers.links.back")}".html_safe, admin_usuarios_path, :class=> "d-inline-block btn btn-secondary me-2" %>
+        <% end %>
+    </div>
+<% end %>

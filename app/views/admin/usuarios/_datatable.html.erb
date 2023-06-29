@@ -1,0 +1,94 @@
+
+
+
+<%- model_class=Usuario -%>
+
+<% id ||=Time.now.to_i %>
+<% remote ||=remote %>
+<% datatable_url ||=datatable_admin_usuarios_url(remote: remote, format: 'json' ) %>
+<% link_to_new ||=new_admin_usuario_url() %>
+<% link_to_new_remote ||=new_admin_usuario_url(remote: true) %>
+
+
+<div class="card p-3">
+    <div class="card-body p-2">
+        <%= link_to link_to_new, class: 'btn btn-sm border-0 btn-success float-end mb-3' do %>
+            <i class="bi bi-plus"></i> Adicionar </a>
+        <% end %>
+        <table class="table table-striped" style="width:100%" id="table-usuarios-<%= id %>">
+            <thead>
+                <tr>
+                    <th>#</th>
+                                        
+                    <th><%= model_class.human_attribute_name(:nome) %></th>
+                
+                                
+                    <th><%= model_class.human_attribute_name(:permissao) %></th>
+                
+                                
+                    <th><%= model_class.human_attribute_name(:email) %></th>
+                        
+                    <th><%= t("helpers.actions") %></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    var table_usuarios_<%= id %> = $('#table-usuarios-<%= id %>').DataTable({
+        stateSave: true,
+        order: [
+            [0, "desc"]
+        ],
+        info: true,
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/pt-BR.json',
+        },
+        serverSide: true,
+        processing: true,
+        ajax: {
+            url: "<%= datatable_url %>",
+            type: "POST",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+            }
+        },
+        columns: [
+            { "data": "index", "class": "col-md-1 coluna-index" },
+                            
+            { "data": "nome" },
+            
+                    
+            { "data": "permissao" },
+            
+                    
+            { "data": "email" },
+                	
+                
+            { "data": "opcoes", "class": "rowlink-skip coluna-opcoes", "orderable": false }
+        ],
+        initComplete: function() {
+            var api = this.api();
+            // Atrasa a consulta para evitar requisições a cada caracter digitado
+            $(".table-usuarios").closest("div.table-responsive").find('div.dataTables_filter input').off('keyup.DT input.DT');
+            var searchDelay = null;
+            $(".table-usuarios").closest("div.table-responsive").find('div.dataTables_filter input').on('keyup', function() {
+                var search = $(".table-usuarios").closest("div.table-responsive").find('div.dataTables_filter input').val();
+                clearTimeout(searchDelay);
+                searchDelay = setTimeout(function() {
+                    if (search != null) {
+                        api.search(search).draw();
+                    }
+                }, 1000);
+            });
+        }   
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (table_usuarios_<%= id %> !== null) {
+            table_usuarios_<%= id %> .destroy();
+            table_usuarios_<%= id %> = null;
+        }
+    });
+</script>

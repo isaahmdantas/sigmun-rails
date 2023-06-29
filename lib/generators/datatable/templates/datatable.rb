@@ -1,13 +1,7 @@
 class <%= class_name %>Datatable
-    <% if namespaced? -%>
-        delegate :params, :h, :t, :link_to, :button_to, :content_tag, 
-        :<%= namespace.underscore %>_<%= singular_table_name %>_path, 
-        :edit_<%= namespace.underscore %>_<%= singular_table_name %>_path, to: :@view
-    <% else %>
-        delegate :params, :h, :t, :link_to, :button_to, :content_tag, 
+    delegate :params, :h, :t, :link_to, :button_to, :content_tag, 
             :<%= singular_table_name %>_path, 
             :edit_<%= singular_table_name %>_path, to: :@view
-    <% end -%>
     
     
     def initialize(view)
@@ -55,45 +49,26 @@ class <%= class_name %>Datatable
         
         def column_opcoes(<%= singular_table_name %>)
             opcoes = ""
-            <% if namespaced? -%>
-                opcoes << "<div class='sm-hero__datatable-actions'>" + (link_to(<%= namespace.underscore %>_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                        { remote: @remote, class: 'btn btn-sm btn-primary text-white me-2', title: 'Visualizar',
-                        data: { toggle: 'tooltip', placement: 'top' } }) do
-                        content_tag(:i, '', class: 'bi bi-search') + ' Visualizar'
-                    end).to_s 
-                opcoes << (link_to(edit_<%= namespace.underscore %>_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                            { remote: @remote, class: 'btn btn-sm btn-warning text-dark me-2', title: 'Editar',
-                            data: { toggle: 'tooltip', placement: 'top' } }) do
-                    content_tag(:i, '', class: 'bi bi-pencil') + ' Editar'
-                    end).to_s
-
-                opcoes <<  (button_to <%= namespace.underscore %>_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                        method: :delete,
-                        data: { confirm: t('helpers.links.confirm_destroy', model: <%= singular_table_name %>.model_name.human), toggle: 'tooltip', placement: 'top' },
-                        remote: @remote,
-                        class: 'btn btn-sm btn-danger text-white me-2', title: 'Remover' do
-                    content_tag(:i, '', class: 'bi bi-trash') + ' Remover'
-                end).to_s
-            <% else %>
-                opcoes << "<div class='sm-hero__datatable-actions'>" + (link_to(<%= singular_table_name %>_path(<%= singular_table_name %>),
-                        { remote: @remote, class: 'btn btn-sm btn-primary text-white me-2', title: 'Visualizar',
-                        data: { toggle: 'tooltip', placement: 'top' } }) do
-                        content_tag(:i, '', class: 'bi bi-search') + ' Visualizar'
-                    end).to_s 
-                opcoes << (link_to(edit_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                            { remote: @remote, class: 'btn btn-sm btn-warning text-dark me-2', title: 'Editar',
-                            data: { toggle: 'tooltip', placement: 'top' } }) do
-                    content_tag(:i, '', class: 'bi bi-pencil') + ' Editar'
-                    end).to_s
-
-                opcoes <<  (button_to <%= singular_table_name %>_path(<%= singular_table_name %>),
-                        method: :delete,
-                        data: { confirm: t('helpers.links.confirm_destroy', model: <%= singular_table_name %>.model_name.human), toggle: 'tooltip', placement: 'top' },
-                        remote: @remote,
-                        class: 'btn btn-sm btn-danger text-white me-2', title: 'Remover' do
-                    content_tag(:i, '', class: 'bi bi-trash') + ' Remover'
+            
+            opcoes << "<div class='sm-hero__datatable-actions'>" + (link_to(<%= singular_table_name %>_path(<%= singular_table_name %>),
+                    { remote: @remote, class: 'btn btn-sm btn-primary text-white me-2', title: 'Visualizar',
+                    data: { toggle: 'tooltip', placement: 'top' } }) do
+                    content_tag(:i, '', class: 'bi bi-search') + ' Visualizar'
                 end).to_s 
-            <% end -%>
+
+            opcoes << (link_to(edit_<%= singular_table_name %>_path(<%= singular_table_name %>),
+                        { remote: @remote, class: 'btn btn-sm btn-warning text-dark me-2', title: 'Editar',
+                        data: { toggle: 'tooltip', placement: 'top' } }) do
+                content_tag(:i, '', class: 'bi bi-pencil') + ' Editar'
+                end).to_s
+
+            opcoes <<  (button_to <%= singular_table_name %>_path(<%= singular_table_name %>),
+                    method: :delete,
+                    data: { confirm: t('helpers.links.confirm_destroy', model: <%= singular_table_name %>.model_name.human), toggle: 'tooltip', placement: 'top' },
+                    remote: @remote,
+                    class: 'btn btn-sm btn-danger text-white me-2', title: 'Remover' do
+                content_tag(:i, '', class: 'bi bi-trash') + ' Remover'
+            end).to_s 
 
             opcoes <<  "</div>"
 
@@ -141,6 +116,4 @@ class <%= class_name %>Datatable
         def sort_direction
             params[:order]['0'][:dir] == 'desc' ? 'desc' : 'asc'
         end
-
-
 end

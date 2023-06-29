@@ -1,0 +1,14 @@
+<%- model_class=Usuario -%>
+
+<% content_for :breadcrumb do %>
+    <li class="breadcrumb-item">
+        <%= link_to model_class.model_name.human(count: 2).titleize, admin_usuarios_path %>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><%= t('helpers.links.list') %></li>
+<% end %>
+
+
+<section id="list-example" class="sm-hero__section">
+    <h2 class="sm-hero__section-title"><%= t('helpers.titles.list', :model=> model_class.model_name.human.titleize) %></h2>
+    <%= render 'datatable' %>
+</section>

@@ -5,13 +5,8 @@
 
 <%% id ||= Time.now.to_i %>
 <%% remote ||= remote %>
-<% unless namespaced? -%>
-    <%% datatable_url ||= datatable_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
-    <%% link_to_new ||= new_<%= singular_table_name %>_url() %>
-<% else %>
-    <%% datatable_url ||= datatable_<%= namespace.underscore %>_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
-    <%% link_to_new ||= new_<%= namespace.underscore %>_<%= singular_table_name %>_url() %>
-<% end -%>
+<%% datatable_url ||= datatable_<%= plural_table_name %>_url(remote: remote, format: 'json' ) %>
+<%% link_to_new ||= new_<%= singular_table_name %>_url() %>
 
 
 <div class="card p-3">

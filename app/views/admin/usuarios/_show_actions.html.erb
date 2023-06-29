@@ -1,0 +1,18 @@
+<%- model_class=Usuario -%>
+
+<% remote ||=remote %>
+
+ <%= link_to edit_admin_usuario_path(usuario), :class=> 'btn btn-warning me-2', :remote => remote do %>
+    <i class="bi bi-pencil"></i> Editar
+<% end %>
+
+<%= button_to admin_usuario_path(usuario), :remote=> remote,
+    :method => 'delete',
+    :data => { :confirm => "Tem certeza que deseja remover?"},
+    :class => 'btn btn-danger me-2' do %>
+    <i class="bi bi-eraser"></i> Remover
+<% end %>
+
+<%= link_to new_admin_usuario_path, class: "btn btn-primary me-2" do %>
+    <i class="bi bi-plus"></i> Adicionar 
+<% end %>

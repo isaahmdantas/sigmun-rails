@@ -1,0 +1,39 @@
+<h5 class="card-title text-center">Editar <%= resource_name.to_s.humanize %></h5>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group mb-4">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'%>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Aguardando confirmação para: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :current_password %>
+    <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+  </div>
+
+  <div class="d-flex justify-content-end align-items-center pt-4">
+    <%= button_tag type: 'submit', class: 'w-100 btn btn-primary btn-block' do %>
+      <i class="bi bi-pencil-square"></i> Atualizar
+    <% end %>
+  </div>
+  <hr>
+  <div>Unhappy? <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete, class: 'me-2' %></div>
+  <%= link_to "Voltar", :back, class: 'me-2' %>
+<% end %>
+

@@ -33,14 +33,15 @@ def apply_template!
 
     after_bundle do
       append_to_file ".gitignore", <<~IGNORE
-        /config/application.yml
+        config/application.yml
         
         /vendor/bundle/
         /public/assets
+        /public/uploads
         /app/assets/builds/*
         !/app/assets/builds/.keep
         /node_modules
-        
+
         .ruby-version
         .node-version 
         .ruby-gemset
@@ -54,6 +55,7 @@ def apply_template!
         ehthumbs.db
         Thumbs.db
 
+        .byebug_history
       IGNORE
 
       apply "app/template.rb"
@@ -65,6 +67,7 @@ def apply_template!
           \n
           # Scripts relacionados ao projeto
           pin 'sigmun', to: 'sigmun.js', preload: true
+          pin "select2", to: "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
           pin 'custom', to: 'custom.js'
         RUBY
       end

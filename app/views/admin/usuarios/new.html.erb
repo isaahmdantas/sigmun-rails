@@ -1,0 +1,34 @@
+<%- model_class=Usuario -%>
+<% remote ||= remote || params.try(:[], :remote) %>
+
+<% content_for :breadcrumb do %>
+    <li class="breadcrumb-item">
+        <%= link_to model_class.model_name.human(count: 2).titleize, admin_usuarios_path %>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><%= t('helpers.links.new') %></li>
+<% end %>
+
+
+<section id="create-form-container">
+    <h2><%= t('helpers.titles.new', :model=> model_class.model_name.human.titleize) %></h2>
+
+    <%= error_messages(@usuario) %>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- commom bootstrap form -->
+            <div class="card mb-4">
+                <% if remote == true || remote == 'true' %>
+                    <%= render "shared/remote_modal", 
+                        modal_class: "#{model_class.model_name.human.titleize}", 
+                        modal_title: t('helpers.titles.edit', 
+                        :model=> model_class.model_name.human.titleize) do %>
+                            <%= render "form" , usuario: @usuario, remote: true %>
+                    <%  end %>
+                <% else %>
+                    <%= render "form" , usuario: @usuario %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

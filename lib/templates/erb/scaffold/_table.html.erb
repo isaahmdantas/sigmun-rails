@@ -13,11 +13,7 @@
     </h2>
     <div id="<%= singular_table_name.titleize %>" class="accordion-collapse collapse <%%= show_collapse %>" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <% unless namespaced? %>
-          <%%= render partial: "<%= plural_table_name %>/datatable" , locals: {remote: remote} %>
-        <% else %>
-          <%%= render partial: "<%= namespace.underscore %>_<%= plural_table_name %>/datatable" , locals: {remote: remote} %>
-        <% end %>
+        <%%= render partial: "<%= plural_table_name %>/datatable" , locals: {remote: remote} %>
       </div>
     </div>
   </div>

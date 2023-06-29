@@ -1,7 +1,7 @@
 <%% remote = false if remote == nil %>
 <%% id ||= Time.now.to_i %>
 
-<%%= form_with(model:  <%= namespaced? ? [namespace.underscore.to_sym, model_resource_name.to_sym] %> : <%= model_resource_name %>, data: { turbo: remote  }) do |form| %>
+<%%= form_with(model: <%= model_resource_name %>, data: { turbo: remote  }) do |form| %>
     <%%= hidden_field_tag :remote, remote %>
     <!-- Note: Para adicionar campo obrigatório é só adicionar a classe '.label-required' no label. -->
     <div class="card-body">
@@ -35,19 +35,10 @@
         <% end %>
     </div>
     <div class="card-footer d-flex justify-content-end">
-        <% unless  namespaced? %>
-            <%%= render "<%= plural_table_name %>/form_actions" %>
+       <%%= render "<%= plural_table_name %>/form_actions" %>
 
-            <%% unless remote %>
-                <%%= link_to "<i class='bi bi-arrow-left'></i> #{t("helpers.links.back")}".html_safe, <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" %>
-            <%% end %>
-
-        <% else %>
-            <%%= render "<%= namespace.underscore %>/<%= plural_table_name %>/form_actions" %>
-
-            <%% unless remote %>
-                <%%= link_to "<i class='bi bi-arrow-left'></i> #{t("helpers.links.back")}".html_safe, <%= "#{namespace.underscore}_#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" %>
-            <%% end %>
-        <% end %>
+        <%% unless remote %>
+            <%%= link_to "<i class='bi bi-arrow-left'></i> #{t("helpers.links.back")}".html_safe, <%= "#{plural_table_name}" %>_path, :class=> "d-inline-block btn btn-secondary me-2" %>
+        <%% end %>
     </div>
 <%% end %>

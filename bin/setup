@@ -13,6 +13,8 @@ def setup!
     
     run "bundle exec wheneverize ."
 
+    run "rails g cancan:ability"
+
     run "bin/rails generate rspec:install"
   end
 end

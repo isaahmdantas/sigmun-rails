@@ -61,6 +61,7 @@ end
 
 # Essencial 
 gem "sidekiq"
+gem "devise", "~> 4.9"
 
 # Configuração 
 gem 'figaro'
@@ -78,6 +79,13 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'protokoll'
 gem 'seed_migration'
+gem "array_enum"
+gem "enum_attributes_validation"
+gem 'carrierwave', '>= 3.0.0.rc', '< 4.0'
+gem "recaptcha"
 
 # Segurança
 gem 'rack-attack'
+gem 'cancancan'
+
+

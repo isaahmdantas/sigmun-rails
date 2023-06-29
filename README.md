@@ -89,7 +89,11 @@ rails generate tradutor Post
 
 ### Como gerar o menu do crud no sidebar  
 ```bash 
-rails generate menu Post
+rails generate menu Post 
+``` 
+ou 
+```bash 
+rails generate menu Admin/Post 
 ``` 
 
 ### Como atualizar a rota do crud incluindo as rotas de 'search' e a rota do 'datatable'
