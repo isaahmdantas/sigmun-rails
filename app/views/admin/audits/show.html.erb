@@ -1,0 +1,9 @@
+<%- model_class = @audit.auditable_type.safe_constantize -%>
+
+
+<%= render "shared/remote_modal", 
+    modal_class: "#{model_class.model_name.human.titleize}", 
+    modal_title: t('helpers.titles.edit', 
+    :model=> model_class.model_name.human.titleize) do %>
+       <%= render "admin/audits/show", locals: {audit: @audit} %>
+<%  end %>

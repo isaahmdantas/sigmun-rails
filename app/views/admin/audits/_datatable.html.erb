@@ -2,7 +2,7 @@
 <% id ||= Time.now.to_i %>
 
 
-<div class="card p-3">
+<div class="table-responsive">
 	<table class="table table-striped table-audits-<%= id %>" id="table-audits-<%= id %>">
 		<thead>
 			<tr>
@@ -16,18 +16,18 @@
                 <th>Data</th>
             </tr>
         </thead>
-        <tbody class="text-gray-600 fw-semibold ">
+        <tbody>
             <% if audits.present? %>
                 <% audits.try(:each_with_index) do |audit, index| %>
                     <tr>
-                        <td class="col-md-1 coluna-index"><%= index + 1 %></td>
+                        <td class="col-md-1"><%= index + 1 %></td>
                         <td><%= audit.try(:user).try(:nome) %></td>
                         <td><%= audit.try(:auditable_type) %></td>
                         <td><%= audit.action == "update" ? "Atualização" : audit.action == "create" ? "Inserção" : "Remoção"  %></td>
                         <td>
-                            <%= link_to "Visualizar", "audits/show?audit_id=#{audit.try(:id)}&auditable_type=#{audit.try(:auditable_type)}&auditable_id=#{audit.try(:auditable_id)}", class: "btn btn-sm btn-primary me-2", remote: true %>
+                            <%= link_to "Visualizar", admin_audit_path(audit.try(:id), auditable_type: audit.try(:auditable_type), auditable_id: audit.try(:auditable_id)), class: "btn btn-sm btn-primary", data: {turbo_frame: "remote_modal"} %>
                         </td>
-                        <td class="col-md-1 coluna-index"><%= audit.try(:version) %></td>
+                        <td class="col-md-1"><%= audit.try(:version) %></td>
                         <td><%= audit.try(:remote_address) %></td>
                         <td><%= audit.try(:created_at).try(:to_fs) %></td>
                     </tr>

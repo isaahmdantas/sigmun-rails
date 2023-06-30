@@ -3,6 +3,7 @@
 
 <% module_namespacing do -%>
 class <%= class_name %> < <%= parent_class_name.classify %>
+    self.implicit_order_column = :created_at
 
     # extends ...................................................................
     

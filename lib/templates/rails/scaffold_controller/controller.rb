@@ -80,13 +80,13 @@ class Admin::<%= controller_class_name %>Controller < AdminController
 
     def datatable
         respond_to do |format|
-            format.json { render json: Admin::<%= controller_class_name %>Datatable.new(view_context) }
+            format.json { render json: Admin::<%= plural_table_name.camelize %>Datatable.new(view_context) }
         end
     end
 
     def search
         respond_to do |format|
-            format.json { render json: <%= singular_table_name.capitalize %>.search(params[:search])  }
+            format.json { render json: <%= singular_table_name.camelize.capitalize %>.search(params[:search])  }
         end
     end
 

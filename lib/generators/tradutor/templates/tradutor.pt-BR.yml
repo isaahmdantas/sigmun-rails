@@ -6,6 +6,6 @@ pt-BR:
         other: <%= plural_table_name.capitalize %>
     attributes:
       <%= singular_table_name %>:
-        <% singular_table_name.capitalize.constantize.attribute_names.each do |attribute|  -%>
+        <% singular_table_name.camelize.constantize.attribute_names.each do |attribute|  -%>
         <%= attribute%>: <%= attribute.upcase %> 
         <% end %>

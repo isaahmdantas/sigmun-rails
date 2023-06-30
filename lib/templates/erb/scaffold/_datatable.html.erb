@@ -1,7 +1,7 @@
 <% name_attribute = attributes.find{ |a| a.name == "name" } %>
 <% has_name = !!name_attribute %>
 
-<%%- model_class=<%= singular_table_name.titleize %> -%>
+<%%- model_class=<%= singular_table_name.camelize.constantize %> -%>
 
 <%% id ||= Time.now.to_i %>
 <%% remote ||= remote %>

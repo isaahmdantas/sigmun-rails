@@ -1,4 +1,4 @@
-<%%- model_class=<%= singular_table_name.titleize %> -%>
+<%%- model_class=<%= singular_table_name.camelize.constantize %> -%>
 <%% remote ||= remote || params.try(:[], :remote) %>
 
 <%% content_for :breadcrumb do %>

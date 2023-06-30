@@ -7,12 +7,12 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Audits" aria-expanded="true" aria-controls="Audits">
-        Histórico de Alterações
+        Histórico
       </button>
     </h2>
     <div id="Audits" class="accordion-collapse collapse <%= show_collapse %>" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <%= render partial: "audits/datatable" , locals: {audits: audits} %>
+        <%= render partial: "admin/audits/datatable" , locals: {audits: audits} %>
       </div>
     </div>
   </div>

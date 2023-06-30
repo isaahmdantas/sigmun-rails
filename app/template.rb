@@ -16,6 +16,7 @@ copy_file "app/helpers/enum_i18n_helper.rb"
 
 copy_file "app/models/concerns/searchrable.rb"
 copy_file "app/models/usuario.rb"
+copy_file "app/models/abillity.rb"
 
 
 insert_into_file "app/controllers/application_controller.rb", after: /^class ApplicationController.*\n/ do
@@ -54,10 +55,10 @@ route "match '404', :to => 'errors#not_found', :via => :all"
 route "match '422', :to => 'errors#unacceptable', :via => :all"
 route "match '500', :to => 'errors#internal_server_error', :via => :all"
 
-route "match '/admin/audits/show', controller: 'admin/audits', action: 'show', via: [:get]"
 route "devise_for :usuarios, path: 'admin', path_names: { sign_in: 'entrar', sign_out: 'sair', password: 'alterar_senha' }"
 route "
   namespace :admin do
+    resources :audits, only: :show
     resources :usuarios do
       collection do
         get 'search'

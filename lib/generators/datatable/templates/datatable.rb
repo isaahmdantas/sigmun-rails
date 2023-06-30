@@ -19,11 +19,11 @@ class Admin::<%= class_name %>Datatable
     end
 
     private 
-        def data
+        def data            
             <%= plural_table_name %>.each_with_index.map do |<%= singular_table_name %>, index|
                 {
                     'index' => (index + 1) + ((page - 1) * per_page),
-                    <% singular_table_name.capitalize.constantize.attribute_names.each do |attribute|  -%>
+                    <% singular_table_name.camelize.constantize.attribute_names.each do |attribute|  -%>
                         <% if attribute != 'deleted_at' && attribute != 'id' %>
                             '<%= attribute %>' => column_<%= attribute %>(<%= singular_table_name %>),
                         <% end  %>
@@ -34,7 +34,7 @@ class Admin::<%= class_name %>Datatable
         end
 
 
-        <% singular_table_name.capitalize.constantize.attribute_names.each do |attribute|  -%>
+        <% singular_table_name.camelize.constantize.attribute_names.each do |attribute|  -%>
             <% if attribute != 'deleted_at' && attribute != 'id' %>
                 def column_<%= attribute %>(<%= singular_table_name %>)
                     <% if attribute == 'created_at' || attribute == 'updated_at' %>
@@ -81,7 +81,7 @@ class Admin::<%= class_name %>Datatable
         end
 
         def query
-            '<%= singular_table_name.capitalize %>'
+            '<%= singular_table_name.camelize.constantize %>'
         end
 
         def fetch
@@ -109,7 +109,7 @@ class Admin::<%= class_name %>Datatable
         end
     
         def sort_column
-            columns = <%= singular_table_name.capitalize.constantize.attribute_names.reject{|e| e == 'deleted_at' } %>
+            columns = <%= singular_table_name.camelize.constantize.attribute_names.reject{|e| e == 'deleted_at' } %>
             columns[params[:order]['0'][:column].to_i]
         end
 

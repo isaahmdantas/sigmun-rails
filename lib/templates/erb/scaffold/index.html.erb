@@ -1,4 +1,4 @@
-<%%- model_class=<%= singular_table_name.titleize %> -%>
+<%%- model_class=<%= singular_table_name.camelize.constantize %> -%>
 
 <%% content_for :breadcrumb do %>
     <li class="breadcrumb-item">
