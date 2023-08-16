@@ -1,4 +1,4 @@
-<%%- model_class=<%= singular_table_name.camelize.constantize %> -%>
+<%%- model_class=<%= singular_table_name.camelize %> -%>
 
 <%% content_for :breadcrumb do %>
     <li class="breadcrumb-item">
@@ -10,5 +10,9 @@
 
 <section id="list-example" class="sm-hero__section">
     <h2 class="sm-hero__section-title"><%%= t('helpers.titles.list', :model=> model_class.model_name.human.titleize) %></h2>
-    <%%= render 'datatable' %>
+    <div class="card p-3">
+        <div class="card-body p-2">
+            <%%= render 'datatable' %>        
+        </div>
+    </div>
 </section>

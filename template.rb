@@ -85,6 +85,7 @@ def apply_template!
         say "bundle exec bin/setup -  Concluir a configuração do Rspec,Cron e etc."
         say "bin/rails db:create - Criar o banco de dados"
         say "bin/rails db:migrate - Rodar as migrações padrões do projeto"
+        say "bin/rails seed:migrate - Rodar para criar os dados padrões do projeto"
       end
 
     end

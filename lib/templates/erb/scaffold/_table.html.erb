@@ -1,17 +1,17 @@
-<%%- model_class=<%= singular_table_name.camelize.constantize %> -%>
+<%%- model_class=<%= singular_table_name.camelize %> -%>
 
-<% remote ||= remote %>
-<% show_collapse ||= show_collapse %>
+<%% remote ||= remote %>
+<%% show_collapse ||= show_collapse %>
 
 
-<div class="accordion" id="accordionExample">
+<div class="accordion" id="accordion<%= singular_table_name.titleize %>">
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= singular_table_name.titleize %>" aria-expanded="true" aria-controls="<%= singular_table_name.titleize %>">
+      <button class="accordion-button <%%= show_collapse.blank? ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#<%= singular_table_name %>" aria-expanded="<%%= show_collapse.present? %>" aria-controls="<%= singular_table_name.titleize %>">
         <%%= model_class.model_name.human(count: 2).titleize %>
       </button>
     </h2>
-    <div id="<%= singular_table_name.titleize %>" class="accordion-collapse collapse <%%= show_collapse %>" data-bs-parent="#accordionExample">
+    <div id="<%= singular_table_name %>" class="accordion-collapse collapse <%%= show_collapse %>" data-bs-parent="#accordion<%= singular_table_name.titleize %>">
       <div class="accordion-body">
         <%%= render partial: "admin/<%= plural_table_name %>/datatable" , locals: {remote: remote} %>
       </div>

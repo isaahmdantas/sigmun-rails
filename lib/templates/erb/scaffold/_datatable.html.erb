@@ -1,7 +1,7 @@
 <% name_attribute = attributes.find{ |a| a.name == "name" } %>
 <% has_name = !!name_attribute %>
 
-<%%- model_class=<%= singular_table_name.camelize.constantize %> -%>
+<%%- model_class=<%= singular_table_name.camelize %> -%>
 
 <%% id ||= Time.now.to_i %>
 <%% remote ||= remote %>
@@ -9,29 +9,27 @@
 <%% link_to_new ||= new_admin_<%= singular_table_name %>_url() %>
 
 
-<div class="card p-3">
-    <div class="card-body p-2">
-        <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-success float-end mb-3' do %>
-            <i class="bi bi-plus"></i> Adicionar</a>
-        <%% end %>
-        <table class="table table-striped" style="width:100%" id="table-<%= plural_table_name %>-<%%= id %>">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <% attributes.without(name_attribute).each do |attribute| -%>
-                        <% unless attribute.name.downcase == 'deleted_at' %>
-                            <th><%%= model_class.human_attribute_name(:<%= attribute.name.downcase %>) %></th>
-                        <% end %>
-                    <% end -%>
-                    <th><%%= model_class.human_attribute_name(:created_at) %></th>
-                    <th><%%= model_class.human_attribute_name(:updated_at) %></th>
-                    <th><%%= t("helpers.actions") %></th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-</div>
+<%% if can? :new, <%= singular_table_name.camelize %> -%>
+    <%%= link_to link_to_new, class: 'btn btn-sm border-0 btn-primary float-end mb-3' do %>
+        <i class="bi bi-plus"></i> Adicionar</a>
+    <%% end %>
+<%% end %>
+<table class="table table-striped" style="width:100%" id="table-<%= plural_table_name %>-<%%= id %>">
+    <thead>
+        <tr>
+            <th>#</th>
+            <% attributes.without(name_attribute).each do |attribute| -%>
+                <% unless attribute.name.downcase == 'deleted_at' %>
+                    <th><%%= model_class.human_attribute_name(:<%= attribute.name.downcase %>) %></th>
+                <% end %>
+            <% end -%>
+            <th><%%= model_class.human_attribute_name(:created_at) %></th>
+            <th><%%= model_class.human_attribute_name(:updated_at) %></th>
+            <th><%%= t("helpers.actions") %></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 <script type="text/javascript">
     var table_<%= plural_table_name %>_<%%= id %> = $('#table-<%= plural_table_name %>-<%%= id %>').DataTable({
         stateSave: true,

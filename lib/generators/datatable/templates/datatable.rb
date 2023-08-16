@@ -1,5 +1,5 @@
 class Admin::<%= class_name %>Datatable
-    delegate :params, :h, :t, :link_to, :button_to, :content_tag, 
+    delegate :params, :can?, :h, :t, :link_to, :button_to, :content_tag, 
             :admin_<%= singular_table_name %>_path, 
             :edit_admin_<%= singular_table_name %>_path, to: :@view
     
@@ -48,27 +48,27 @@ class Admin::<%= class_name %>Datatable
 
         
         def column_opcoes(<%= singular_table_name %>)
-            opcoes = ""
+            opcoes = "<div class='sm-hero__datatable-actions'>"
             
-            opcoes << "<div class='sm-hero__datatable-actions'>" + (link_to(admin_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                    { remote: @remote, class: 'btn btn-sm btn-primary text-white me-2', title: 'Visualizar',
-                    data: { toggle: 'tooltip', placement: 'top' } }) do
-                    content_tag(:i, '', class: 'bi bi-search') + ' Visualizar'
-                end).to_s 
+            opcoes << (link_to(admin_<%= singular_table_name %>_path(<%= singular_table_name %>),
+                { remote: @remote, class: 'btn btn-sm btn-primary text-white me-2', title: 'Visualizar',
+                data: { toggle: 'tooltip', placement: 'top' } }) do
+                content_tag(:i, '', class: 'bi bi-search') + ' Visualizar'
+            end).to_s if can? :show, <%= singular_table_name %>
 
             opcoes << (link_to(edit_admin_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                        { remote: @remote, class: 'btn btn-sm btn-warning text-dark me-2', title: 'Editar',
-                        data: { toggle: 'tooltip', placement: 'top' } }) do
+                { remote: @remote, class: 'btn btn-sm btn-warning text-dark me-2', title: 'Editar',
+                data: { toggle: 'tooltip', placement: 'top' } }) do
                 content_tag(:i, '', class: 'bi bi-pencil') + ' Editar'
-                end).to_s
+            end).to_s if can? :edit, <%= singular_table_name %>
 
             opcoes <<  (button_to admin_<%= singular_table_name %>_path(<%= singular_table_name %>),
-                    method: :delete,
-                    data: { confirm: t('helpers.links.confirm_destroy', model: <%= singular_table_name %>.model_name.human), toggle: 'tooltip', placement: 'top' },
-                    remote: @remote,
-                    class: 'btn btn-sm btn-danger text-white me-2', title: 'Remover' do
+                method: :delete,
+                data: { confirm: t('helpers.links.confirm_destroy', model: <%= singular_table_name %>.model_name.human), toggle: 'tooltip', placement: 'top' },
+                remote: @remote,
+                class: 'btn btn-sm btn-danger text-white me-2', title: 'Remover' do
                 content_tag(:i, '', class: 'bi bi-trash') + ' Remover'
-            end).to_s 
+            end).to_s if can? :destroy, <%= singular_table_name %>
 
             opcoes <<  "</div>"
 
@@ -81,7 +81,7 @@ class Admin::<%= class_name %>Datatable
         end
 
         def query
-            '<%= singular_table_name.camelize.constantize %>'
+            '<%= singular_table_name.camelize %>'
         end
 
         def fetch

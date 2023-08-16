@@ -12,7 +12,7 @@ copy_file "config/initializers/field_error_proc.rb"
 copy_file "config/initializers/routes_exceptions.rb"
 copy_file "config/initializers/sidekiq.rb"
 copy_file "config/initializers/devise.rb"
-copy_file 'config/initializers/assets.rb'
+copy_file 'config/initializers/assets.rb', force: true
 copy_file 'config/initializers/inflections.rb', force: true
 
 directory "config/locales", force: true

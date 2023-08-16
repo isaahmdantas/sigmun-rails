@@ -16,7 +16,7 @@ copy_file "app/helpers/enum_i18n_helper.rb"
 
 copy_file "app/models/concerns/searchrable.rb"
 copy_file "app/models/usuario.rb"
-copy_file "app/models/abillity.rb"
+copy_file "app/models/ability.rb"
 
 
 insert_into_file "app/controllers/application_controller.rb", after: /^class ApplicationController.*\n/ do
@@ -68,13 +68,11 @@ route "
   end
 "
 
-directory "app/views/layouts", force: true
-directory "app/views/shared", force: true
-directory "app/views/errors", force: true
-directory "app/views/audits", force: true
-directory "app/views/site", force: true
-
 directory "app/views/admin", force: true
 directory "app/views/devise", force: true
+directory "app/views/errors", force: true
+directory "app/views/layouts", force: true
+directory "app/views/shared", force: true
+directory "app/views/site", force: true
 
 copy_file "app/views/layouts/erro.html.erb"

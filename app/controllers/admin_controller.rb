@@ -6,6 +6,16 @@ class AdminController < ActionController::Base
     after_action :flash_to_headers
     before_action :authenticate_usuario!
 
+    helper_method :current_user 
+
+    rescue_from CanCan::AccessDenied do |exception|
+        respond_to do |format|
+        format.json { head :forbidden, content_type: 'text/html' }
+        format.html { redirect_to admin_url, alert: exception.message }
+        format.js   { render partial: 'shared/errors', locals: {error: exception.message} }
+        end
+    end
+
     def index;end
 
     def flash_to_headers
@@ -14,6 +24,11 @@ class AdminController < ActionController::Base
         response.headers["X-Message-Type"] = flash_type.to_s
         flash.discard # don't want the flash to appear when you reload page
     end
+
+    protected
+        def current_user
+            current_usuario 
+        end
 
     private
         def flash_message
